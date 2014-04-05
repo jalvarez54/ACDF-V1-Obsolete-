@@ -1,0 +1,123 @@
+﻿@model IkoulaACDF.Models.RegisterViewModel
+
+@section Scripts {
+    @Scripts.Render("~/bundles/datepicker")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            language: "@System.Globalization.CultureInfo.CurrentUICulture.Name",
+            $(".date-picker").datepicker('update', new Date())
+        });
+    </script>
+}
+
+@{
+    ViewBag.Title = "S’inscrire";
+}
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Créer un nouveau compte.</h4>
+    <hr />
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10 ">
+            @*Use template: Share/Date.cshtml*@
+            @Html.EditorFor(m => m.BirthDate)
+            @*@Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control date-picker", value = Model.BirthDate.ToString("dd-mm-yyyy") })*@
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstYearSchool, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @*@Html.TextBoxFor(m => m.FirstYearSchool, new { @class = "form-control" })*@
+            @Html.DropDownListFor(m => m.FirstYearSchool, new SelectList(Model.YearFirst, "Value", "Text"), "-- Please select a year --");
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastYearSchool, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @*@Html.TextBoxFor(m => m.LastYearSchool, new { @class = "form-control" })*@
+            @Html.DropDownListFor(m => m.LastYearSchool, new SelectList(Model.YearLast, "Value", "Text"), "-- Please select a year --");
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastClass, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.LastClass, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ActualCity, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ActualCity, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ActualCountry, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ActualCountry, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Actual photo", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <img src="@Html.DisplayFor(model => model.PhotoUrl)" alt="@Html.DisplayFor(model => model.UserName) " width="100" title="@Html.DisplayFor(model => model.FirstName)" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Photo, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Photo, null, new { id = "FilePhoto", onchange = "readURL(this)", type = "file", title = "Search for file to add", @class = "btn btn-primary" })
+            @Html.ValidationMessageFor(m => m.Photo)<br />
+            <img id="blah" src="#" alt="" width="100" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="S'enregistrer" />
+        </div>
+    </div>
+}

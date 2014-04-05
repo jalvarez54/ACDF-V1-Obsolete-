@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personnal web site">
+    <meta name="author" content="José ALVAREZ">
+    <meta name="keywords" content="jose,alvarez,personnel,asp.net,mvc,anciens,charles,foucauld,csablanca,maroc" />
+    <!-- Adding a RenderSection here, mark it as not required-->
+    @RenderSection("AdditionalMeta", false)
+    <title>@ViewBag.Title - ACDF</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Google Analytics BEGIN -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-48859953-1', 'jow-alva.net');
+        ga('send', 'pageview');
+    </script>
+    <!-- Google Analytics END -->
+    <!-- AddThis Button BEGIN -->
+    <script type="text/javascript">
+        var addthis_config = {
+            data_ga_property: 'UA-48859953-1',
+            data_ga_social: true
+        };
+    </script>
+    <!-- AddThis Button END -->
+    <!-- GO TOP -->
+    <script>
+        $(document).ready(function () {
+
+            // hide #back-top first
+            $("#back-top").hide();
+
+            // fade in #back-top
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) {
+                        $('#back-top').fadeIn();
+                    } else {
+                        $('#back-top').fadeOut();
+                    }
+                });
+
+                // scroll body to 0px on click
+                $('#back-top a').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+            });
+
+        });
+    </script>
+    <!-- GO TOP END -->
+
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="~/Home"><img class="navbar-brand" title="HOME - ACDF-Casablanca-Maroc" style="border:0; background-color: transparent; padding:0; margin:0;" alt="Feedback" src="~/Content/images/Tramp0.png"> </a>
+                <span class="navbar-brand hidden-xs" style="font-size:x-large">Anciens de Charles de Foucauld</span>
+                <span class="navbar-brand hidden-lg hidden-sm" style="font-size:x-small">Anciens de Charles de Foucauld</span>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-question-circle fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li class="divider"></li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Management", "Index", "Account")</li>
+                        }
+                    </ul>
+
+                    <!-- /.dropdown-messages -->
+                </li>
+                <li><a href="http://195.5.238.130/p-jalvarez/foucauld/" target="_blank" title="OLD ACDF Site"><i class="fa fa-external-link"></i></a></li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="Login/Logout User profile">
+                        <i class="fa fa-user fa-fw"></i> @User.Identity.Name <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            @Html.Partial("_LoginPartial")
+                        </li>
+                    </ul>
+                </li>
+                <!-- /.dropdown-user -->
+                <li>@MyRazorHelpers.AddThis()</li>
+            </ul>
+            <!-- /.navbar-top-links -->
+
+        </nav>
+        <!-- /.navbar-static-top -->
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Medias<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li class="nav-header"><i class="fa fa-picture-o"></i> Photos</li>
+                            <li>@Html.ActionLink("Photos (Paged)", "Index", "Photo")</li>
+                            <li>@Html.ActionLink("Photos (Gallery)", "Category", "Photo")</li>
+                            <li>@Html.ActionLink("Photos (Last five)", "RecentPhoto", "Photo")</li>
+                            <li class="divider"></li>
+                            <li class="nav-header"><i class="fa fa-video-camera"></i> Videos</li>
+                            <li>@Html.ActionLink("Videos", "Index", "Video")</li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Documents<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li class="nav-header"><i class="fa fa-book"></i> Documents</li>
+                            <li>@Html.ActionLink("Palmares & Tramp", "Index", "PdfViewer")</li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Meetings<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li class="nav-header"><i class="fa fa-users"></i> GuessBook</li>
+                            <li>@Html.ActionLink("Show GuessBook", "Index", "GuessBook")</li>
+                            <li class="nav-header"><i class="fa fa-users"></i> Meetings</li>
+                            <li>@Html.ActionLink("Meetings", "Index", "Home")</li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>@Html.ActionLink("Sign GuessBook", "Create", "GuessBook")</li>
+                    <li>
+                        @Html.ActionLink("Members list", "RestrictedUsersList", "Account")
+                    </li>
+                </ul>
+                <!-- /#side-menu -->
+            </div>
+            <!-- /.sidebar-collapse -->
+        </nav>
+        <!-- /.navbar-static-side -->
+
+
+        <div id="page-wrapper">
+            @RenderBody()
+            <footer>
+                @MyRazorHelpers.FooterInformations()
+            </footer>
+            @MyRazorHelpers.FixTab()
+            @MyRazorHelpers.FixTabTop()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

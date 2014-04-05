@@ -1,0 +1,62 @@
+﻿    @*http://stackoverflow.com/questions/13840524/using-pdf-js-in-asp-net-mvc3
+    http://stackoverflow.com/questions/12681588/is-it-possible-to-open-a-pdf-with-fancybox-2-1-in-ie8*@
+
+
+@section scripts {
+    @Scripts.Render("~/bundles/fancybox")
+
+    <script type="text/javascript">
+
+        $(".fancypdf").click(function () {
+            $.fancybox({
+                type: 'html',
+                autoSize: false,
+                content: '<embed src="' + this.href + '#nameddest=self&page=1&view=FitH,0&zoom=70,0,0" type="application/pdf" height="99%" width="100%" />',
+                beforeClose: function () {
+                    $(".fancybox-inner").unwrap();
+                },
+                width: 700,
+                height: 800,
+                helpers: {
+                    title: {
+                        type: 'float',
+                    },
+                },
+            }); //fancybox
+            return false;
+        }); //click
+    </script>
+}
+
+@{
+    ViewBag.Title = "PDFViewer";
+}
+
+<h2>Palmares et Tramp</h2>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <span class="badge">1966</span>
+        @Html.ActionLink("Palmares", "Viewer", "PdfViewer", new { filePath = "Palmares1966.pdf" }, new { @class = "fancypdf", title = "Palmares 1966" })
+    </li>
+</ul>
+<ul class="list-group">
+    <li class="list-group-item">
+        <span class="badge">1968</span>
+        @Html.ActionLink("Palmares", "Viewer", "PdfViewer", new { filePath = "Palmares1968.pdf" }, new { @class = "fancypdf", title = "Palmares 1968" })
+    </li>
+</ul>
+<ul class="list-group">
+    <li class="list-group-item">
+        <span class="badge">1972</span>
+        @Html.ActionLink("Tramp", "Viewer", "PdfViewer", new { filePath = "Tramp1972.pdf" }, new { @class = "fancypdf", title = "Tramp 1972" })
+    </li>
+</ul>
+<ul class="list-group">
+    <li class="list-group-item">
+        <span class="badge">2004</span>
+        @Html.ActionLink("Tramp", "Viewer", "PdfViewer", new { filePath = "Tramp2004.pdf" }, new { @class = "fancypdf", title = "Tramp 2004" })
+    </li>
+</ul>
+
+

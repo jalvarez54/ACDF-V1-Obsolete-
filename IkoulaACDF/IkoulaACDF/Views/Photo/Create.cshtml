@@ -1,0 +1,67 @@
+﻿@model IkoulaACDF.Models.PhotoCreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Photo", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>AcdfPhoto in @Html.TextBoxFor(model => model.CategoryName) / @Html.TextBoxFor(model => model.SubCategoryName)</h4>
+        <hr />
+        @Html.HiddenFor(model => model.CategoryId)
+        @Html.HiddenFor(model => model.SubCategoryId)
+
+
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Photo, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Photo, null, new { id = "FilePhoto", onchange = "readURL(this)", type = "file", title = "Search for file to add", @class = "btn btn-primary" })
+                @Html.ValidationMessageFor(model => model.Photo)<br />
+                <img id="blah" src="#" alt="" width="100" height="100" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { rows = "4" })
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Place, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Place, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Place)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SchoolPeriod, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.SchoolPeriod, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.SchoolPeriod)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

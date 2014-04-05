@@ -1,0 +1,97 @@
+﻿@model IkoulaACDF.Models.PhotoEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>AcdfPhoto</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.PhotoId)
+        @Html.HiddenFor(model => model.Path)
+        @Html.HiddenFor(model => model.ThumbPath)
+        @Html.HiddenFor(model => model.CategoryId)
+        @Html.HiddenFor(model => model.SubCategoryId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Path, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="@Html.DisplayFor(model => model.Path)" alt="@Html.DisplayFor(model => model.Path) " title="@Html.DisplayFor(model => model.CategoryName)" width="400" />
+                @Html.ValidationMessageFor(model => model.Path)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { rows = "4" })
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Place, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Place, new { @class = "form-control", cols = "40", rows = "5" })
+                @Html.ValidationMessageFor(model => model.Place)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", cols = "40", rows = "5", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.UserName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownListFor(model => model.CategoryId, new SelectList(Model.Categories, "CategoryId", "CategoryName"), "-- Please select a category --")*@
+                @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control", cols = "40", rows = "5", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.CategoryName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubCategoryName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownListFor(model => model.SubCategoryId, new SelectList(Model.SubCategories, "SubCategoryId", "SubCategoryName"), "-- Please select a subcategory --")*@
+                @Html.TextBoxFor(model => model.SubCategoryName, new { @class = "form-control", cols = "40", rows = "5", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.SubCategoryName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SchoolPeriod, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.SchoolPeriod, new { @class = "form-control", cols = "40", rows = "5" })
+                @Html.ValidationMessageFor(model => model.SchoolPeriod)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Date, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

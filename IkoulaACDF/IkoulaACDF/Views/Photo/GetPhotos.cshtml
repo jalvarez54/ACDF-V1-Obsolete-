@@ -1,0 +1,159 @@
+﻿@model IEnumerable<IkoulaACDF.Models.PhotoViewModel>
+
+@section scripts {
+    @*@Scripts.Render("~/bundles/elastislide")*@
+    @Scripts.Render("~/bundles/fancybox")
+    @Scripts.Render("~/bundles/flexslider")
+
+    <script type="text/javascript">
+
+        $(".fancybox").fancybox({
+            helpers: {
+                title: {
+                    type: 'float',
+                },
+            },
+            openEffect: 'none',
+            closeEffect: 'elastic',
+            nextEffect: 'fade',
+            prevEffect: 'fade',
+        });
+
+        $(window).load(function () {
+
+            // The slider being synced must be initialized first
+            $('#carousel').flexslider({
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false,
+                itemWidth: 100,
+                itemMargin: 5,
+                asNavFor: '#slider',
+                prevText: "", //String: Set the text for the "previous" directionNav item
+                nextText: "", //String: Set the text for the "next" directionNav item
+            });
+
+            $('#slider').flexslider({
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false,
+                sync: "#carousel",
+                prevText: "", //String: Set the text for the "previous" directionNav item
+                nextText: "", //String: Set the text for the "next" directionNav item
+                smoothHeight: true,
+            });
+            $('#loading').hide();
+        });
+    </script>
+
+    @*<noscript>
+            <style>
+                .es-carousel ul {
+                    display: block;
+                }
+            </style>
+        </noscript>
+        <script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">
+
+            <div class="rg-image-wrapper">
+                {{if itemsCount > 1}}
+                <div class="rg-image-nav">
+                    <a href="#" class="rg-image-nav-prev">Previous Image</a>
+                    <a href="#" class="rg-image-nav-next">Next Image</a>
+                </div>
+                {{/if}}
+                <div class="rg-image"></div>
+                <div class="rg-loading"></div>
+                <div class="rg-caption-wrapper">
+                    <div class="rg-caption" style="display:none;">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </script>*@
+}
+
+@{
+    ViewBag.Title = "Photos";
+}
+
+@if (ViewBag.SubCatId == 33)
+{
+    <h2>@ViewBag.Title @Html.DisplayFor(model => model.First().CategoryName) : <span class="badge">@ViewBag.Count photos</span> </h2>
+    <div>
+        <span class="btn btn-default">@Html.ActionLink("Back to Categories", "Category")</span>
+        <span class="btn btn-default">@Html.ActionLink("Add new photo in " + @Html.DisplayFor(model => model.First().CategoryName), "Create", new { catId = @ViewBag.CatId, subCatId = @ViewBag.SubCatId })</span>
+    </div>
+}
+else
+{
+    <h2>@ViewBag.Title @Html.DisplayFor(model => model.First().CategoryName) / @Html.DisplayFor(model => model.First().SubCategoryName) : <span class="badge">@ViewBag.Count photos</span></h2>
+    <div>
+        <span class="btn btn-default">@Html.ActionLink("Back to Categories", "Category")</span>
+        <span class="btn btn-default">@Html.ActionLink("Add new photo in " + @Html.DisplayFor(model => model.First().CategoryName) + " - " + @Html.DisplayFor(model => model.First().SubCategoryName), "Create", new { catId = @ViewBag.CatId, subCatId = @ViewBag.SubCatId })</span>
+    </div>
+}
+
+<div class="row">
+
+    <div class="col-sm-9">
+        <div class="flex-container flex-viewport">
+            <div id="slider" class="flexslider">
+                <div id="loading" style="text-align:center"><img src="~/Content/fancybox/fancybox_loading.gif" /></div>
+                <ul class="slides">
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            @{string myTitle = item.Description + " : " + item.Place;}
+                            <a class="fancybox" title="@myTitle" href="@item.Path"><img src="@item.Path" /></a>
+                            <p class="flex-caption"> @myTitle</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div id="carousel" class="flexslider">
+                <ul class="slides">
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            <img src="@item.ThumbPath" style="max-height:100px" />
+                            <p class="flex-caption-thumbnail" style="font-size:xx-small"> @item.PhotoId</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+</div>
+
+@*<div id="rg-gallery" class="rg-gallery">
+        <div class="rg-thumbs">
+            <!-- Elastislide Carousel Thumbnail Viewer -->
+            <div class="es-carousel-wrapper">
+                <div class="es-nav">
+                    <span class="es-nav-prev">Previous</span>
+                    <span class="es-nav-next">Next</span>
+                </div>
+                <div class="es-carousel">
+                    <ul>
+                        @foreach (var item in Model)
+                        {
+                            <li>
+                                <a href="#"><img src="@item.ThumbPath" data-large="@item.Path" alt="@item.Place" data-description="@item.Description" /></a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <!-- End Elastislide Carousel Thumbnail Viewer -->
+        </div><!-- rg-thumbs -->
+    </div><!-- rg-gallery -->*@
+
+
+<div>
+    <span class="btn btn-default">@Html.ActionLink("Back to Categories", "Category")</span>
+</div>

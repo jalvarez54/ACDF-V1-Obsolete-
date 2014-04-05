@@ -1,0 +1,38 @@
+﻿@*BirthDays with model*@
+@model IkoulaACDF.Models.HomePageViewModel
+
+@foreach (var item in Model.BirthDays)
+{
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <img src="@item.Key.PhotoUrl" title="@item.Key.FirstName @item.Key.LastName" alt="@item.Key.UserName" width="25" height="25" />
+        </div>
+        <div class="panel-body">
+            <b>@item.Key.FirstName @item.Key.LastName</b> (@item.Value years old)  <br />
+        </div>
+        <div class="panel-footer">
+            @Html.DisplayNameFor(model => item.Key.BirthDate)
+            <b>@Html.DisplayFor(mode => item.Key.BirthDate)</b><br />
+        </div>
+    </div>
+}
+<hr />
+
+@*BirthDays with ViewBag*@
+@*@foreach (var item in ViewBag.Birthdays)
+    {
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <img src="@item.PhotoUrl" title="@item.FirstName @item.LastName" alt="@item.UserName" width="25" height="25" />
+            </div>
+            <div class="panel-body">
+                <b>@item.FirstName @item.LastName</b><br />
+            </div>
+            <div class="panel-footer">
+                <b>@item.BirthDate</b><br />
+            </div>
+        </div>
+    }
+    <hr />*@

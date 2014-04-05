@@ -1,0 +1,24 @@
+﻿@*@model IEnumerable<IkoulaACDF.Models.PhotoViewModel>*@
+@model IEnumerable<IkoulaACDF.Models.GetCategoryPhotoViewModel>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@*http://stackoverflow.com/questions/15357468/c-sharp-foreach-within-foreach-display-3-item-in-each-item-carousel*@
+<div class="row">
+    @foreach (var group in Model.Select((x, index) => new { element = x, index }).GroupBy(x => x.index / 3, x => x.element))
+    {
+        <div class="col-sm-6 col-md-4">
+            @foreach (var well in group)
+            {
+                <div class="well">
+                    @*<a href="SubCategory?categoryID=@well.CategoryId"> <img data-src="holder.js/300x200" alt="@well.CategoryName"> </a>*@
+                    <a href="SubCategory?categoryID=@well.CategoryId" class=" btn btn-default btn-block"> @well.CategoryName </a>
+                </div>
+            }
+        </div>
+    }
+</div>
