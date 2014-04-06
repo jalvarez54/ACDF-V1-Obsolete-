@@ -249,7 +249,7 @@ input[type="checkbox"].input-validation-error {
 .flex-container {
     position: relative;
     border-radius: 5px;
-    max-width:620px;
+    max-width:1000px;
     margin:0px 0px 50px 0px;
 }
 .flexslider{
@@ -273,7 +273,7 @@ input[type="checkbox"].input-validation-error {
 
 .flex-caption-home {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
-    bottom:5px;
+    top:10px;
     color: #FFFFFF;
     font-size: 17px;
     font-family:'Comic Sans MS';

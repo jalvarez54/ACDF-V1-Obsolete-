@@ -35,57 +35,56 @@
 }
 
 <div class="row wrap">
-
     <!--center-->
-    <div class="col-sm-9">
+    <div class="col-lg-9 col-sm-8">
 
-            <div class="flex-container flex-viewport">
-                <div class="flexslider">
-                    <ul class="slides">
-                        <li>
-                            <img src="~/Medias/_Photos/Divers/The-Fire-Phoenix.jpg" />
-                            <p class="flex-caption-home">Tel un phénix, le site ACDF renaît de ses cendres. <br /> <small>(Desktop, Tablette and SmartPhone)</small></p>
-                        </li>
-                        @*<li>
+        <div class="flex-container flex-viewport">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <img src="~/Medias/_Photos/Divers/The-Fire-Phoenix.jpg" />
+                        <p class="flex-caption-home">Tel un phénix, le site ACDF renaît de ses cendres. <br /> <small>(Desktop, Tablette and SmartPhone)</small></p>
+                    </li>
+                    @*<li>
                             <img src="~/Content/images/LogoC.png" />
                             <p class="flex-caption-home">Infatiguable Tramp.</p>
                         </li>*@
-                        <li>
-                            <img src="~/Medias/_Photos/Batiments/PTentree.jpg" />
-                            <p class="flex-caption-home">Entrée principale.</p>
-                        </li>
-                        <li>
-                            <img src="~/Medias/_Photos/Batiments/PTcourdespetitslabuvette.jpg" />
-                            <p class="flex-caption">Cours des petits.</p>
-                        </li>
-                        <li>
-                            <img src="~/Medias/_Photos/Batiments/PTcourdesgrands.jpg" />
-                            <p class="flex-caption-home">Cours des grands.</p>
+                    <li>
+                        <img src="~/Medias/_Photos/Batiments/PTentree.jpg" />
+                        <p class="flex-caption-home">Entrée principale.</p>
+                    </li>
+                    <li>
+                        <img src="~/Medias/_Photos/Batiments/PTcourdespetitslabuvette.jpg" />
+                        <p class="flex-caption">Cours des petits.</p>
+                    </li>
+                    <li>
+                        <img src="~/Medias/_Photos/Batiments/PTcourdesgrands.jpg" />
+                        <p class="flex-caption-home">Cours des grands.</p>
 
-                        </li>
-                        <li>
-                            <img src="~/Medias/_Photos/Batiments/PTchapelle.jpg" />
-                            <p class="flex-caption-home">Chapelle puis gymnase.</p>
+                    </li>
+                    <li>
+                        <img src="~/Medias/_Photos/Batiments/PTchapelle.jpg" />
+                        <p class="flex-caption-home">Chapelle puis gymnase.</p>
 
-                        </li>
-                        <li>
-                            <img src="~/Medias/_Photos/Batiments/PTensemble.jpg" />
-                            <p class="flex-caption-home">Panoramique.</p>
+                    </li>
+                    <li>
+                        <img src="~/Medias/_Photos/Batiments/PTensemble.jpg" />
+                        <p class="flex-caption-home">Panoramique.</p>
 
-                        </li>
-                        <li>
-                            <img src="~/Medias/_Photos/Batiments/PTpreau.jpg" />
-                            <p class="flex-caption-home">Préau.</p>
+                    </li>
+                    <li>
+                        <img src="~/Medias/_Photos/Batiments/PTpreau.jpg" />
+                        <p class="flex-caption-home">Préau.</p>
 
-                        </li>
-                        <li>
-                            <img src="~/Medias/_Photos/Batiments/PTchibaniadevantlebureaudepucheu.jpg" />
-                            <p class="flex-caption-home">Escalier rentrée des élèves.</p>
+                    </li>
+                    <li>
+                        <img src="~/Medias/_Photos/Batiments/PTchibaniadevantlebureaudepucheu.jpg" />
+                        <p class="flex-caption-home">Escalier rentrée des élèves.</p>
 
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                </ul>
             </div>
+        </div>
 
         <div>
             <h2>Under construction</h2>
@@ -136,13 +135,13 @@
         </div>
     </div><!--/center-->
     <!--right-->
-    <div class="col-sm-3">
+    <div class="col-lg-3 col-sm-4">
         <div class="panel-group" id="accordionL">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" title="Last 5 Registrations" data-parent="#accordionL" href="#collapseOneL">
-                            Registrations<span class="badge pull-right">@ViewBag.CountUsers</span>
+                            Registrations<span class="badge pull-right">@ViewBag.CountNewUsers</span>
                         </a>
                     </h4>
                 </div>
@@ -192,7 +191,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" title="Happy birthday to you !" data-parent="#accordionR" href="#collapseOneR">
-                            Happy birthday<span class="badge pull-right">@ViewBag.CountBirthDays</span>
+                            @DateTime.Now.ToString("MMMM").ToUpperInvariant() birthdays<span class="badge pull-right">@ViewBag.CountBirthDays</span>
                         </a>
                     </h4>
                 </div>

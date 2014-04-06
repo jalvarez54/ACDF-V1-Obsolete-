@@ -74,8 +74,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="~/Home"><img class="navbar-brand" title="HOME - ACDF-Casablanca-Maroc" style="border:0; background-color: transparent; padding:0; margin:0;" alt="Feedback" src="~/Content/images/Tramp0.png"> </a>
-                <span class="navbar-brand hidden-xs" style="font-size:x-large">Anciens de Charles de Foucauld</span>
-                <span class="navbar-brand hidden-lg hidden-sm" style="font-size:x-small">Anciens de Charles de Foucauld</span>
+                <span class="navbar-brand hidden-xs hidden-sm" style="font-size:x-large">Anciens de Charles de Foucauld</span>
+                <span class="navbar-brand visible-xs" style="font-size:x-small">Anciens de Charles de Foucauld</span>
             </div>
             <!-- /.navbar-header -->
 
@@ -146,7 +146,9 @@
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Meetings<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li class="nav-header"><i class="fa fa-users"></i> GuessBook</li>
-                            <li>@Html.ActionLink("Show GuessBook", "Index", "GuessBook")</li>
+                            <li>
+                                <a href="@Url.Action("Index", "GuessBook")"><span>Show GuessBook</span><span class="badge pull-right">@ViewBag.CountGuessBooks</span></a>
+                            </li>
                             <li class="nav-header"><i class="fa fa-users"></i> Meetings</li>
                             <li>@Html.ActionLink("Meetings", "Index", "Home")</li>
                         </ul>
@@ -154,7 +156,7 @@
                     </li>
                     <li>@Html.ActionLink("Sign GuessBook", "Create", "GuessBook")</li>
                     <li>
-                        @Html.ActionLink("Members list", "RestrictedUsersList", "Account")
+                        <a href="@Url.Action("RestrictedUsersList", "Account")"><span>Members list</span><span class="badge pull-right">@ViewBag.CountMembers</span></a>
                     </li>
                 </ul>
                 <!-- /#side-menu -->

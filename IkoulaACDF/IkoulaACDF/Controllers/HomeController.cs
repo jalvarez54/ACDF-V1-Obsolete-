@@ -33,7 +33,11 @@ namespace IkoulaACDF.Controllers
             var aspnetUsers = (from u in db.AspNetUsers
                              orderby u.RegistrationDate descending
                              select u).Take(5);
-            ViewBag.CountUsers = aspnetUsers.Count();
+            ViewBag.CountNewUsers = aspnetUsers.Count();
+
+            ViewBag.CountMembers = (from u in db.AspNetUsers
+                                  orderby u.RegistrationDate descending
+                                  select u).Count();
 
 
             var guessBooks = (from gb in db.AcdfGuessBooks
