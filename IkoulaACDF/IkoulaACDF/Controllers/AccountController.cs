@@ -11,6 +11,9 @@ using Microsoft.Owin.Security;
 using IkoulaACDF.Models;
 using IkoulaACDF.Helpers;
 using System.IO;
+using System.Web.UI.WebControls;
+using System.Collections.Specialized;
+using System.Net.Mail;
 
 namespace IkoulaACDF.Controllers
 {
@@ -31,7 +34,7 @@ namespace IkoulaACDF.Controllers
         public ActionResult Index()
         {
             var Db = new ApplicationDbContext();
-            var users = Db.Users;
+            var users = Db.Users.OrderBy(u => u.RegistrationDate);
             var model = new List<EditUserViewModel>();
             foreach (var user in users)
             {
@@ -219,8 +222,16 @@ namespace IkoulaACDF.Controllers
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
-                    await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+                    //await SignInAsync(user, model.RememberMe);
+                    //return RedirectToLocal(returnUrl);
+                    if (user.ConfirmedEmail == true)
+                    {
+                        await SignInAsync(user, model.RememberMe); return RedirectToLocal(returnUrl);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Confirm Email Address.");
+                    }
                 }
                 else
                 {
@@ -258,7 +269,19 @@ namespace IkoulaACDF.Controllers
 
                 // Ajout
                 var user = model.GetUser();
+                user.FirstName = user.FirstName.ToLower();
+                user.LastName = user.LastName.ToUpper();
+                user.ActualCity = user.ActualCity.ToUpper();
+                user.ActualCountry = user.ActualCountry.ToUpper();
                 user.RegistrationDate = DateTime.Now;
+                if (User.IsInRole("Admin"))
+                {
+                    user.ConfirmedEmail = true;
+                }
+                else
+                {
+                    user.ConfirmedEmail = false;
+                }
                 //var user = new ApplicationUser() { UserName = model.UserName };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -268,8 +291,31 @@ namespace IkoulaACDF.Controllers
                     idManager.AddUserToRole(user.Id, "CanEdit");
                     if(!User.IsInRole("Admin"))
                     {
-                        await SignInAsync(user, isPersistent: false);
-                        return RedirectToAction("Create", "GuessBook");
+                        //await SignInAsync(user, isPersistent: false);
+
+                        // Send email to new user
+                        //Helpers.Utils.SendMail("", "", user.UserName, model.Password, model.Email);
+
+                        //return RedirectToAction("Create", "GuessBook");
+
+                        using (var client = new System.Net.Mail.SmtpClient())
+                        {
+                            MailDefinition md = new MailDefinition();
+                            md.IsBodyHtml = true;
+                            md.Subject = "ACDF mail confirmation";
+
+                            ListDictionary replacements = new ListDictionary();
+                            replacements.Add("<%Name%>", user.UserName);
+                            replacements.Add("<%Link%>", Url.Action("ConfirmEmail", "Account", new { Token = user.Id, Email = user.Email }, Request.Url.Scheme));
+
+                            string body = "Hello <%Name%> <BR/> Thank you for your registration, please click on the below link to complete your registration:. <BR/> <%Link%>";
+
+                            MailMessage msg = md.CreateMailMessage(user.Email, replacements, body, new System.Web.UI.Control());
+                            client.Send(msg);
+
+                            System.Diagnostics.Debug.WriteLine(msg);
+                        }
+                        return RedirectToAction("Confirm", "Account", new { Email = user.Email });
                     }
                     else
                     {
@@ -284,6 +330,39 @@ namespace IkoulaACDF.Controllers
 
             // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
             return View(model);
+        }
+        [AllowAnonymous]
+        public ActionResult Confirm(string Email)
+        {
+            ViewBag.Email = Email;
+            return View();
+        }
+        // GET: /Account/ConfirmEmail
+        [AllowAnonymous]
+        public async Task<ActionResult> ConfirmEmail(string Token, string Email)
+        {
+            ApplicationUser user = this.UserManager.FindById(Token);
+            if (user != null)
+            {
+                if (user.Email == Email)
+                {
+                    user.ConfirmedEmail = true;
+                    await UserManager.UpdateAsync(user);
+                    await SignInAsync(user, isPersistent: false);
+                    // Send mail to track
+                    Helpers.Utils.SendMail("", "", user.FirstName, user.LastName, user.Email);
+                    return RedirectToAction("Create", "GuessBook");
+                }
+                else
+                {
+                    return RedirectToAction("Confirm", "Account", new { Email = user.Email });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Confirm", "Account", new { Email = "" });
+            }
+
         }
 
         //

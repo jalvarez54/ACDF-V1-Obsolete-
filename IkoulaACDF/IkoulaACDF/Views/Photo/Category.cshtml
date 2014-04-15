@@ -8,7 +8,9 @@
 <h2>@ViewBag.Title</h2>
 
 @*http://stackoverflow.com/questions/15357468/c-sharp-foreach-within-foreach-display-3-item-in-each-item-carousel*@
-<div class="row">
+
+<!-- container -->
+<div class="container">
     @foreach (var group in Model.Select((x, index) => new { element = x, index }).GroupBy(x => x.index / 3, x => x.element))
     {
         <div class="col-sm-6 col-md-4">
@@ -21,4 +23,4 @@
             }
         </div>
     }
-</div>
+</div><!-- container -->

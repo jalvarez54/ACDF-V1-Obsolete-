@@ -15,8 +15,8 @@
 }
 
 #page-wrapper {
-    padding: 0 15px;
-    /*min-height: 568px;*/
+    /*padding: 0 5px;*/
+    min-height: 625px;
     background-color: #fff;
 }
 

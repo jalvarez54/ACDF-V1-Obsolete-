@@ -32,31 +32,50 @@
     ViewBag.Title = "PDFViewer";
 }
 
-<h2>Palmares et Tramp</h2>
+<h2>Documents au format PDF</h2>
+<!-- container -->
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">1966 - P. Llorens</span>
+            @Html.ActionLink("Palmares 1966", "Viewer", "PdfViewer", new { filePath = "Palmares1966.pdf" }, new { @class = "fancypdf", title = "Palmares 1966" })
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">1968 - B. Migeot</span>
+            @Html.ActionLink("Palmares 1968", "Viewer", "PdfViewer", new { filePath = "Palmares1968.pdf" }, new { @class = "fancypdf", title = "Palmares 1968" })
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">1972</span>
+            @Html.ActionLink("Tramp 1972", "Viewer", "PdfViewer", new { filePath = "Tramp1972.pdf" }, new { @class = "fancypdf", title = "Tramp 1972" })
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">2004 - J. Alvarez</span>
+            @Html.ActionLink("Tramp 2004", "Viewer", "PdfViewer", new { filePath = "Tramp2004.pdf" }, new { @class = "fancypdf", title = "Tramp 2004" })
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">2008 - José Formairon</span>
+            @Html.ActionLink("Lexique De Mots En Usage A Foucauld", "Viewer", "PdfViewer", new { filePath = "LexiqueDeMotsEnUsageAfoucauld.pdf" }, new { @class = "fancypdf", title = "LexiqueDeMotsEnUsageAfoucauld" })
+            <p class="well">
+                Il y a 50 ans, en 1957-58, je passais ma première année à Foucauld (j’y suis resté jusque à juin 1965 où, élève en terminale à Lyautey, j’étais surveillant des petits, étude du soir et dortoir). Dans le collège se pratiquait un langage; probablement plus casablancais que typiquement attaché à Foucauld; que la nostalgie, lorsque j’entends certains mots, me renvoie parfois en pleine figure.
+                Recueil de mots, d’expressions, de noms de personnes utilisés par les élèves du collège tout ce qui m’est revenu est là en vrac. Vie de Foucauld, reflet des mélanges de cultures avec des termes empruntés à l’arabe, l’espagnol, l’italien ou à la communauté juive, certains termes ont du même quitter vos souvenirs. Les blédards utilisaient plus facilement les mots d’origine arabe, ceux de quartiers populaires comme le Maarif ou les Roches se servaient de termes espagnols ou italiens.
+                Ce recueil n’est qu’un début : pourquoi pas puiser dans vos souvenirs pour l’étoffer ?
+            </p>
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">J. Alvarez</span>
+            @Html.ActionLink("Charles de Foucauld (René Bazin)", "Viewer", "PdfViewer", new { filePath = "bazin_charles_de_foucauld.pdf" }, new { @class = "fancypdf", title = "Charles de Foucauld" })
+        </li>
+    </ul>
 
-<ul class="list-group">
-    <li class="list-group-item">
-        <span class="badge">1966</span>
-        @Html.ActionLink("Palmares", "Viewer", "PdfViewer", new { filePath = "Palmares1966.pdf" }, new { @class = "fancypdf", title = "Palmares 1966" })
-    </li>
-</ul>
-<ul class="list-group">
-    <li class="list-group-item">
-        <span class="badge">1968</span>
-        @Html.ActionLink("Palmares", "Viewer", "PdfViewer", new { filePath = "Palmares1968.pdf" }, new { @class = "fancypdf", title = "Palmares 1968" })
-    </li>
-</ul>
-<ul class="list-group">
-    <li class="list-group-item">
-        <span class="badge">1972</span>
-        @Html.ActionLink("Tramp", "Viewer", "PdfViewer", new { filePath = "Tramp1972.pdf" }, new { @class = "fancypdf", title = "Tramp 1972" })
-    </li>
-</ul>
-<ul class="list-group">
-    <li class="list-group-item">
-        <span class="badge">2004</span>
-        @Html.ActionLink("Tramp", "Viewer", "PdfViewer", new { filePath = "Tramp2004.pdf" }, new { @class = "fancypdf", title = "Tramp 2004" })
-    </li>
-</ul>
-
+</div><!-- container -->
 

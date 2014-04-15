@@ -247,6 +247,10 @@
     <Compile Include="Migrations\201403270748538_RegistrationDate.Designer.cs">
       <DependentUpon>201403270748538_RegistrationDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201404101409033_ConfirmedEmail.cs" />
+    <Compile Include="Migrations\201404101409033_ConfirmedEmail.Designer.cs">
+      <DependentUpon>201404101409033_ConfirmedEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetUserMetaData.cs" />
@@ -283,6 +287,7 @@
       <DependentUpon>ModelAcdf.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\PhotoViewModel.cs" />
+    <Compile Include="Models\TrampViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -297,6 +302,8 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\16x16-arrow-up-orange.png" />
     <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\LOGO150.png" />
+    <Content Include="Content\images\Tramp50.png" />
     <Content Include="Content\images\up-arrow.png" />
     <Content Include="Content\images\asc.gif" />
     <Content Include="Content\images\bg.gif" />
@@ -427,7 +434,40 @@
     <Content Include="fonts\flexslider-icon.eot" />
     <Content Include="fonts\flexslider-icon.ttf" />
     <Content Include="fonts\flexslider-icon.woff" />
+    <Content Include="Views\Home\_Panel01Partial.cshtml" />
+    <Content Include="Views\Home\_Panel02Partial.cshtml" />
+    <Content Include="Views\Home\_Panel03Partial.cshtml" />
+    <Content Include="Views\Home\_Panel04Partial.cshtml" />
+    <Content Include="Views\Home\_Panel05Partial.cshtml" />
+    <Content Include="Views\Home\_Panel06Partial.cshtml" />
+    <Content Include="Views\Home\_Panel07Partial.cshtml" />
+    <Content Include="Views\Home\_Panel09Partial.cshtml" />
+    <Content Include="Views\Home\_Panel10Partial.cshtml" />
+    <Content Include="Views\Shared\Articles\AnecdoteVierge.cshtml" />
+    <Content Include="Views\Home\Anecdotes.cshtml" />
+    <Content Include="Views\PdfViewer\GetFile.cshtml" />
+    <Content Include="Views\Home\Archives.cshtml" />
+    <None Include="Views\Shared\Articles\Anecdote-11.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Home\Todo.cshtml" />
+    <Content Include="Views\Account\Confirm.cshtml" />
+    <Content Include="Views\Shared\_NewsPartial.cshtml" />
+    <Content Include="Views\Shared\_ComingSoonPartial.cshtml" />
+    <Content Include="Views\Home\_HomeLastFiveGuessBookPartial.cshtml" />
+    <Content Include="Views\Home\Tramp.cshtml" />
+    <Content Include="Views\Home\_Panel08Partial.cshtml" />
+    <Content Include="Views\Shared\Articles\Anecdote-02.cshtml" />
+    <Content Include="Views\Shared\Articles\Anecdote-03.cshtml" />
+    <Content Include="Views\Shared\Articles\Anecdote-04.cshtml" />
+    <Content Include="Views\Shared\Articles\Anecdote-05.cshtml" />
+    <Content Include="Views\Shared\Articles\Anecdote-12.cshtml" />
+    <Content Include="Views\Shared\Articles\Anecdote-06.cshtml" />
+    <Content Include="Views\Shared\Articles\Anecdote-10.cshtml" />
+    <Content Include="Views\Shared\Articles\Anecdote-13.cshtml" />
+    <Content Include="Views\Shared\Articles\Anecdote-14.cshtml" />
+    <Content Include="Views\Shared\Articles\Anecdote-15.cshtml" />
+    <Content Include="Views\Shared\Articles\Anecdote-01.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -576,7 +616,6 @@
     <Content Include="Views\Photo\Edit.cshtml" />
     <Content Include="Views\Photo\Index.cshtml" />
     <Content Include="Views\Video\Index.cshtml" />
-    <Content Include="Views\Home\Index - Old.cshtml" />
     <Content Include="Views\Photo\IndexAll.cshtml" />
     <Content Include="Views\MyError\AccessDenied.cshtml" />
     <Content Include="Views\MyError\ForTestHandledException.cshtml" />
@@ -587,22 +626,19 @@
     <Content Include="Views\Account\UserRoles.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\SelectRoleEditorViewModel.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\Photo\GetPhotos.cshtml" />
     <Content Include="Views\Photo\Category.cshtml" />
     <Content Include="Views\Photo\SubCategory.cshtml" />
     <Content Include="Views\Photo\RecentPhoto.cshtml" />
     <Content Include="Views\Home\_HomeRecentPhotoPartial.cshtml" />
-    <Content Include="Views\Home\View1.cshtml" />
     <Content Include="Views\Photo\_RecentPhotoPartial.cshtml" />
-    <Content Include="Views\Home\_View1.cshtml" />
     <Content Include="App_Data\Palmares1966.pdf" />
     <Content Include="App_Data\Tramp1972.pdf" />
     <Content Include="App_Data\Tramp2004.pdf" />
     <Content Include="App_Data\Palmares1968.pdf" />
     <Content Include="Views\PdfViewer\Index.cshtml" />
-    <Content Include="Views\PdfViewer\ViewerObject.cshtml" />
+    <Content Include="Views\PdfViewer\ViewerOBJ.cshtml" />
     <Content Include="Views\GuessBook\CreateOld.cshtml" />
     <Content Include="Views\GuessBook\Delete.cshtml" />
     <Content Include="Views\GuessBook\Edit.cshtml" />
@@ -612,11 +648,11 @@
     <Content Include="Views\Home\_HomeGuessBookPartial.cshtml" />
     <Content Include="Views\Home\_HomeAspNetUserPartial.cshtml" />
     <Content Include="Views\Home\_HomeBirthDayPartial.cshtml" />
-    <Content Include="Views\Home\ViewPartials.cshtml" />
     <Content Include="Views\PdfViewer\Viewer.cshtml" />
     <Content Include="Views\Account\RestrictedUsersList.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Archives\" />
     <Folder Include="Medias\" />
     <Folder Include="MyPDFs\" />
   </ItemGroup>
@@ -632,6 +668,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201403270748538_RegistrationDate.resx">
       <DependentUpon>201403270748538_RegistrationDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404101409033_ConfirmedEmail.resx">
+      <DependentUpon>201404101409033_ConfirmedEmail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

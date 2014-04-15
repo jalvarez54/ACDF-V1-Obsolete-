@@ -10,7 +10,7 @@ namespace IkoulaACDF
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                //"~/Scripts/holder.js",
+                        //"~/Scripts/holder.js",
                         "~/Scripts/jquery.metisMenu.js",
                         "~/Scripts/sb-admin.js",
                         "~/Scripts/jquery-cdf54-imagePreview.js"));
@@ -60,7 +60,7 @@ namespace IkoulaACDF
                     "~/Content/font-awesome.css",
                     "~/Content/elastislidestyle.css",
                     "~/Content/elastislide.css",
-                    "~/Content/sb-admin.css",
+                    //"~/Content/sb-admin.css",
                       "~/Content/site.css"));
         }
     }

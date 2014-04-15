@@ -32,7 +32,8 @@
 
 @Html.Partial("_RecentPhotoPartial")
 
-<div class="row">
+<!-- container -->
+<div class="container">
     @foreach (var group in Model.Select((x, index) => new { element = x, index }).GroupBy(x => x.index / 3, x => x.element))
     {
         <div class="col-sm-6 col-md-4">
@@ -53,7 +54,7 @@
                             {
                                 @well.SubCategoryName
                             }
-                            <div class="btn-group-xs hidden-xs hidden-sm">
+                            <div class="btn-group-xs hidden-xs hidden-sm btn-group-justified">
                                 @Html.ActionLink("Edit", "Edit", new { id = well.PhotoId }, new { type = "button", @class = "btn btn-xs btn-primary" })
                                 @Html.ActionLink("Details", "Details", new { id = well.PhotoId }, new { type = "button", @class = "btn btn-xs" })
                                 @Html.ActionLink("Delete", "Delete", new { id = well.PhotoId }, new { type = "button", @class = "btn btn-xs btn-danger" })
@@ -65,7 +66,7 @@
         </div>
     }
 
-</div>
+</div><!-- container -->
 
 
 

@@ -18,7 +18,7 @@ namespace IkoulaACDF.Controllers
         // GET: /GuessBook/
         public ActionResult Index()
         {
-            var acdfguessbooks = db.AcdfGuessBooks.Include(a => a.AspNetUser);
+            var acdfguessbooks = db.AcdfGuessBooks.Include(a => a.AspNetUser).OrderByDescending(m => m.Date) ;
             return View(acdfguessbooks.ToList());
         }
 

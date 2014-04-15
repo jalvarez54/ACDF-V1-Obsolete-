@@ -1,7 +1,4 @@
-﻿@{
-    ViewBag.Title = "Home";
-}
-@section Scripts{
+﻿@section Scripts{
     @Scripts.Render("~/bundles/flexslider")
     @Scripts.Render("~/bundles/fancybox")
 
@@ -34,218 +31,50 @@
     </script>
 }
 
-<div class="row wrap">
-    <!--center-->
-    <div class="col-lg-9 col-sm-8">
+@{
+    ViewBag.Title = "Home";
+}
 
-        <div class="flex-container flex-viewport">
-            <div class="flexslider">
-                <ul class="slides">
-                    <li>
-                        <img src="~/Medias/_Photos/Divers/The-Fire-Phoenix.jpg" />
-                        <p class="flex-caption-home">Tel un phénix, le site ACDF renaît de ses cendres. <br /> <small>(Desktop, Tablette and SmartPhone)</small></p>
-                    </li>
-                    @*<li>
-                            <img src="~/Content/images/LogoC.png" />
-                            <p class="flex-caption-home">Infatiguable Tramp.</p>
-                        </li>*@
-                    <li>
-                        <img src="~/Medias/_Photos/Batiments/PTentree.jpg" />
-                        <p class="flex-caption-home">Entrée principale.</p>
-                    </li>
-                    <li>
-                        <img src="~/Medias/_Photos/Batiments/PTcourdespetitslabuvette.jpg" />
-                        <p class="flex-caption">Cours des petits.</p>
-                    </li>
-                    <li>
-                        <img src="~/Medias/_Photos/Batiments/PTcourdesgrands.jpg" />
-                        <p class="flex-caption-home">Cours des grands.</p>
+<!-- container -->
+<div class="container">
 
-                    </li>
-                    <li>
-                        <img src="~/Medias/_Photos/Batiments/PTchapelle.jpg" />
-                        <p class="flex-caption-home">Chapelle puis gymnase.</p>
+    <!-- upper row -->
+    <div class="row">
+        <!-- left col -->
+        <div class="col-lg-4 col-sm-12">
+            @Html.Partial("_Panel01Partial")
+        </div><!-- left col -->
+        <!-- center col -->
+        <div class="col-lg-4 col-sm-12">
+            @Html.Partial("_Panel02Partial")
+            @Html.Partial("_Panel05Partial")
+        </div><!-- center col -->
+        <!-- right col -->
+        <div class="col-lg-4 col-sm-12">
+            @Html.Partial("_Panel06Partial")
+            @Html.Partial("_Panel03Partial")
+        </div><!-- right col -->
+    </div><!-- upper row -->
 
-                    </li>
-                    <li>
-                        <img src="~/Medias/_Photos/Batiments/PTensemble.jpg" />
-                        <p class="flex-caption-home">Panoramique.</p>
+    <!-- middle row -->
+    <div class="row">
+        <!-- left col -->
+        <div class="col-lg-4 col-sm-12">
+            @Html.Partial("_Panel07Partial")
+        </div><!-- left col -->
+        <!-- center col -->
+        <div class="col-lg-5 col-sm-12">
+            @Html.Partial("_Panel08Partial")
+        </div><!-- center col -->
+        <!-- right col -->
+        <div class="col-lg-3 col-sm-12">
+            @Html.Partial("_Panel09Partial")
+        </div><!-- right col -->
+    </div><!-- middle row -->
 
-                    </li>
-                    <li>
-                        <img src="~/Medias/_Photos/Batiments/PTpreau.jpg" />
-                        <p class="flex-caption-home">Préau.</p>
+    <!-- down row -->
+    <div class="row">
+        @Html.Partial("_Panel10Partial")
+    </div><!-- down row -->
 
-                    </li>
-                    <li>
-                        <img src="~/Medias/_Photos/Batiments/PTchibaniadevantlebureaudepucheu.jpg" />
-                        <p class="flex-caption-home">Escalier rentrée des élèves.</p>
-
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div>
-            <h2>Under construction</h2>
-            <p class="alert alert-warning">
-                SI VOUS DETECTEZ DES PROBLEMES D'UTILISATION OU DE FONCTIONNEMENT OU SI VOUS AVEZ DES SUGGESTIONS A FAIRE<br />
-                CONTACTEZ: <strong>Support:</strong>   <a href="mailto:foucauld.casa@free.fr">foucauld.casa@free.fr</a><br />
-            </p>
-
-            <p class="lead"><a class="btn btn-default" href="~/AcdfHistory.txt" target="_blank">Changset <i class="fa fa-external-link"></i></a></p>
-            <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
-            <ul class="list-inline"><li><a href="#">4 Days Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 7 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 56 Shares</a></li></ul>
-        </div>
-        <hr>
-        <div>
-            <h2>New</h2>
-            <p>
-                <ul>
-                    <li style="text-decoration:line-through">Contact page (see top menu: Contact)</li>
-                    <li style="text-decoration:line-through">Photo page (see top menu: Content/Photos (Pages)) <sub>[provisional]</sub></li>
-                    <li style="text-decoration:line-through">Video page (see top menu: Content/Videos)</li>
-                    <li style="text-decoration:line-through">Carousel</li>
-                    <li style="text-decoration:line-through">User profile and users administration</li>
-                    <li style="text-decoration:line-through">Photo edition enable</li>
-                    <li style="text-decoration:line-through">Photo gallery (see top menu: Content/Photos (Gallery)) <sub>[provisional]</sub></li>
-                    <li style="text-decoration:line-through">Photo last 7 days (see top menu: Content/"Photos (Last 7 days)) <sub>[provisional]</sub></li>
-                    <li style="text-decoration:line-through">Photo gallery modified with flexslider (see top menu: Content/Photos (Gallery)) </li>
-                    <li><img src="~/Content/images/new.gif" />Recent Photos (added or modified) last 7 days</li>
-                    <li><img src="~/Content/images/new.gif" />Palmares & Tramp (see top menu: /Content/Document:Palmares & Tramp) <b>[FireFox only]</b></li>
-                    <li><img src="~/Content/images/new.gif" />Guess Book (see top menu: /Content/Meetings)</li>
-                </ul>
-            </p>
-            <p class="lead"><button class="btn btn-default">Read More</button></p>
-            <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
-            <ul class="list-inline"><li><a href="#">1 Week Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 4 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li></ul>
-        </div>
-        <hr>
-        <div>
-            <h2>Article Heading</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                Aliquam in felis sit amet augue.
-            </p>
-            <p class="lead"><button class="btn btn-default">Read More</button></p>
-            <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
-            <ul class="list-inline"><li><a href="#">1 Week Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 4 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li></ul>
-        </div>
-    </div><!--/center-->
-    <!--right-->
-    <div class="col-lg-3 col-sm-4">
-        <div class="panel-group" id="accordionL">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" title="Last 5 Registrations" data-parent="#accordionL" href="#collapseOneL">
-                            Registrations<span class="badge pull-right">@ViewBag.CountNewUsers</span>
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseOneL" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        @Html.Partial("_HomeAspNetUserPartial")
-                        <p><a class="btn btn-default" href="#">See more &raquo;</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" title="Last 5 GuessBook" data-parent="#accordionL" href="#collapseTwoL">
-                            GuessBooks<span class="badge pull-right">@ViewBag.CountGuessBooks</span>
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseTwoL" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        @Html.Partial("_HomeGuessBookPartial")
-                        <p><a class="btn btn-default" href="~/GuessBook">See more &raquo;</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" title="Last 5 Photos" data-parent="#accordionL" href="#collapseThreeL">
-                            Photos<span class="badge pull-right">@ViewBag.CountPhotos</span>
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseThreeL" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        @Html.Partial("_HomeRecentPhotoPartial")
-                        <p><a class="btn btn-default" href="~/Photo/RecentPhoto">See more &raquo;</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel-group" id="accordionR">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" title="Happy birthday to you !" data-parent="#accordionR" href="#collapseOneR">
-                            @DateTime.Now.ToString("MMMM").ToUpperInvariant() birthdays<span class="badge pull-right">@ViewBag.CountBirthDays</span>
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseOneR" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        @Html.Partial("_HomeBirthDayPartial")
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordionR" href="#collapseTwoR">
-                            Work items
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseTwoR" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <ul>
-                            <li style="text-decoration:line-through">Contact page</li>
-                            <li style="text-decoration:line-through">Photo page <small>[provisional]</small></li>
-                            <li>About page</li>
-                            <li style="text-decoration:line-through">Carousel</li>
-                            <li style="text-decoration:line-through">Video page </li>
-                            <li>Video gallery </li>
-                            <li style="text-decoration:line-through">Users managment and profile</li>
-                            <li>Documents managment</li>
-                            <li style="text-decoration:line-through">User edit photos enable</li>
-                            <li>Forum</li>
-                            <li style="text-decoration:line-through">Guest book</li>
-                            <li style="text-decoration:line-through">Photo gallery</li>
-                            <li>Thought for the day</li>
-                        </ul>
-                        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordionR" href="#collapseThreeR">
-                            Title
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseThreeR" class="panel-collapse collapse">
-                    <div class="panel-body">Content here..</div>
-                </div>
-            </div>
-        </div>
-
-    </div><!--/right-->
-
-</div>
+</div><!-- container -->

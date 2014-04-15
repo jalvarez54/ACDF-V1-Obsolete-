@@ -121,6 +121,15 @@ Version 05 = V0.0.0.5 {0.5.Alpha}
 * CHANGE: Site style http://startbootstrap.com/sb-admin-v2
 * ADD: Annotation RegularExpression in Regeister and Edit account
 * ADD: RestrictedUsersListViewModel, RestrictedUsersList action, RestrictedUsersList.cshtml view
-
-
+* ADD: Send email to new user
+* ADD: function in GetPhotos to set div.panel-body with p.flex-caption text value
+* BUG: Exception in http://www.jow-alva.net/ACDF/Photo/GetPhotos?categoryID=16&subCategoryID=50 no element
+* TODO: add edition capability in GetPhotos
+* ADD: Email verification http://code.msdn.microsoft.com/ASPNET-MVC-5-Conferma-30d8b426
+* ADD: PM> Add-Migration ConfirmedEmail & PM> Update-Database
+* ADD: _HomeLastFiveGuessBookPartial.cshtml
+* ADD: Home/Tramp.cshtml
+* ADD: Action /Home/Anecdotes
+* BUG: need ViewBag to be global for badges value ==> Resolve using Application var: 
+    this.HttpContext.ApplicationInstance.Application.Add("CountMembers", ViewBag.CountMembers);
 

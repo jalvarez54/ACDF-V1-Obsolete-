@@ -7,11 +7,76 @@ using System.Reflection;
 using System.Configuration;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Net.Mail;
 
 namespace IkoulaACDF.Helpers
 {
     public class Utils
     {
+
+        public static string GetCountGuessBooks(HttpContextBase cela)
+        {
+            try
+            {
+                return cela.ApplicationInstance.Application.Get("CountGuessBooks").ToString();
+            }
+            catch (Exception)
+            {
+
+            }
+            return null;
+        }
+        public static string GetCountMembers(HttpContextBase cela)
+        {
+            try
+            {
+                return cela.ApplicationInstance.Application.Get("CountMembers").ToString();
+            }
+            catch (Exception)
+            {
+
+            }
+            return null;
+        }
+        public static void SendMail(string body, string subject, string firstName, string lastName, string email)
+        {
+            string myBody = string.Empty;
+            string mySubject = string.Empty;
+
+            if (body == "") { myBody = ConfigurationManager.AppSettings["cdf54.DefaultBody"].ToString(); } else { myBody = body; };
+            if (subject == "") { 
+                mySubject = ConfigurationManager.AppSettings["cdf54.DefaultSubject"].ToString();
+                myBody = string.Format("{0}: {1} {2} avec email: {3}  [ Ne pas répondre à ce mail ]", myBody, firstName, lastName, email);
+            } 
+            else 
+            { 
+                mySubject = subject; 
+            };
+            try
+            {
+                using (var client = new SmtpClient())
+                {
+                    var msg = new MailMessage()
+                    {
+                        Body = myBody,
+                        Subject = mySubject
+                    };
+
+                    string[] toUsers = ConfigurationManager.AppSettings["cdf54.EmailsRegistration"].ToString().Split(',');
+                    foreach (string destination in toUsers)
+                    {
+                        msg.To.Add(destination);
+                    }
+                    client.Send(msg);
+                    System.Diagnostics.Debug.WriteLine(msg);
+                }
+           }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
+
         public static void MyThumbUtil(IkoulaACDF.Models.PhotoViewModel photo, IkoulaACDF.Controllers.PhotoController controller)
         {
             try

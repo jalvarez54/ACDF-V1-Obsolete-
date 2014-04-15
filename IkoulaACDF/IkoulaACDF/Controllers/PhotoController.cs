@@ -87,6 +87,11 @@ namespace IkoulaACDF.Controllers
             int noSubCategory = db.AcdfSubCategories.Count(s => s.CategoryId == categoryID);
             if(noSubCategory == 0)
             {
+                // * BUG: Exception in http://www.jow-alva.net/ACDF/Photo/GetPhotos?categoryID=16&subCategoryID=50 no element
+                if (db.AcdfCategories.Count(s => s.CategoryId == categoryID) == 0)
+                {
+                    return RedirectToAction("Category", "Photo", null);
+                }
                 return RedirectToAction("GetPhotos", new { categoryId = categoryID, subCategoryId = 33 });
             }
 
@@ -126,6 +131,11 @@ namespace IkoulaACDF.Controllers
         ViewBag.CatId = categoryId;
         ViewBag.SubCatId = subCategoryId;
         ViewBag.Count = photos.Count();
+        // * BUG: Exception in http://www.jow-alva.net/ACDF/Photo/GetPhotos?categoryID=16&subCategoryID=50 no element
+        if (ViewBag.Count == 0)
+        {
+            return RedirectToAction("Category","Photo",null);
+        }
 
         return View(photos.ToList());
         }

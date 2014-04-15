@@ -1,0 +1,74 @@
+﻿@model IEnumerable<IkoulaACDF.Models.PhotoViewModel>
+
+@section scripts {
+    @Scripts.Render("~/bundles/fancybox")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                helpers: {
+                    title: {
+                        type: 'float',
+                    },
+                },
+                openEffect: 'none',
+                closeEffect: 'elastic',
+                nextEffect: 'fade',
+                prevEffect: 'fade',
+            })
+        });
+    </script>
+
+    <script type="text/javascript">
+        $('#myModal').modal('show');
+    </script>
+}
+
+
+
+
+@{
+    ViewBag.Title = "Archives";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!-- container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="thumbnail">
+                <div class="caption">
+                    <a class="fancybox" title="Abbé Salla 1956" href="~/Archives/Salla/Salla_6.jpg">
+                        <img src="~/Archives/Salla/Salla_6_small.jpg" />
+                    </a>
+                    <h4>Père Salla</h4>
+                    <p>
+                        Voici la coupure de presse du Petit Marocain relatant la partie de pelote Basque avec l'abbé Salla.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+
+            <div class="thumbnail">
+                <img src="~/Archives/FouadBenchekroun/thumb_Scan10337Web.JPG" />
+                <div class="caption">
+                    <h4>Benchekroun Fouad</h4>
+                    <p>
+                        Un ancien de Charles de Foucauld Benchekroun Fouad, psychiatre et psychanalyste à Rabat passé sur le Gril pour la revue Citadine. Il se plie au jeu des questions réponses pour nous éclairer sur la notion de féminin et l'évolution de la femme marocaine.
+                    </p>
+                    <p style="align-content:center">
+                        <a class="fancybox" title="Scan10338" href="~/Archives/FouadBenchekroun/Scan10338.JPG">
+                            <img src="~/Archives/FouadBenchekroun/thumb_Scan10338.JPG" />
+                        </a>
+                        <a class="fancybox" title="Scan10339" href="~/Archives/FouadBenchekroun/Scan10339.JPG">
+                            <img src="~/Archives/FouadBenchekroun/thumb_Scan10339.JPG" />
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- container -->

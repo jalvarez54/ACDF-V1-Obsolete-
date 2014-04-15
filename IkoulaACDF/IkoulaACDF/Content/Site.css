@@ -1,16 +1,18 @@
 ﻿/* CUSTOMIZE SITE.CSS
 -------------------------------------------------- */
+
+/* Global Styles 
+-------------------------------------------------- */
+
 body {
-    padding-top: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 20px;
+    padding-top: 60px;
+    background-color: #f8f8f8;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    /*padding-left: 15px;
+    padding-right: 15px;*/
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -44,31 +46,192 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+/* styles for images */
 .img-rounded{
     max-width:126px;
 }
+
+/* style container */
+.container{
+    padding:10px 10px 10px 0px;
+    margin-left: 0px;
+    margin-right: 35px;
+    width: auto;
+}
+
+/* Footer 
+-------------------------------------------------- */
+.footer {
+    background: none repeat scroll 0 0 #EDEDED;
+    position: relative;
+    transition: all 0.2s ease 0s;
+}
+.footer .bottom-line {
+    background: none repeat scroll 0 0 #333333;
+    border-bottom: 2px solid #CCCCCC;
+    border-top: 2px solid #555555;
+    clear: both;
+    color: #F7F7F7;
+    margin: 0 0 1.07em;
+    padding-top: 0.71em;
+}
+.bottom-line a:link{
+text-decoration: none;
+    color:#F7F7F7;
+}
+.bottom-line a:visited{
+text-decoration: none;
+    color:#0094DE;
+}
+.bottom-line a:hover{
+    color:#fa1405;
+}
+
+/* Wrappers 
+-------------------------------------------------- */
+ #wrapper {
+    width: 100%;
+}
+
+#page-wrapper {
+    /*padding: 0 5px;*/
+    min-height: 625px;
+    background-color: #fff;
+}
+
+@media(min-width:768px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 0 30px;
+        /*min-height: 1300px;*/
+        border-left: 1px solid #e7e7e7;
+    }
+}
+
+
+/* Navigation 
+-------------------------------------------------- */
+
+/* Top Right Navigation Dropdown Styles */
+ .navbar-top-links li {
+    display: inline-block;
+}
+
+.navbar-top-links li:last-child {
+    margin-right: 15px;
+}
+
+.navbar-top-links li a {
+    padding: 15px;
+    min-height: 50px;
+}
+
+.navbar-top-links .dropdown-menu li {
+    display: block;
+}
+
+.navbar-top-links .dropdown-menu li:last-child {
+    margin-right: 0;
+}
+
+.navbar-top-links .dropdown-menu li a {
+    padding: 3px 20px;
+    min-height: 0;
+}
+
+.navbar-top-links .dropdown-menu li a div {
+    white-space: normal;
+}
+
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+    width: 310px;
+    min-width: 0;
+}
+
+.navbar-top-links .dropdown-messages {
+    margin-left: 5px;
+}
+
+.navbar-top-links .dropdown-tasks {
+    margin-left: -59px;
+}
+
+.navbar-top-links .dropdown-alerts {
+    margin-left: -123px;
+}
+
+.navbar-top-links .dropdown-user {
+    right: 0;
+    left: auto;
+}
+
+/* Sidebar Menu Styles */
+ .sidebar-search {
+    padding: 15px;
+}
+
+.arrow {
+    float: right;
+}
+
+.fa.arrow:before {
+    content: "\f104";
+}
+
+.active > a > .fa.arrow:before {
+    content: "\f107";
+}
+
+.nav-second-level li,
+.nav-third-level li {
+    border-bottom: none !important;
+}
+
+.nav-second-level li a {
+    padding-left: 37px;
+}
+
+.nav-third-level li a {
+    padding-left: 52px;
+}
+
+@media(min-width:768px) {
+    .navbar-static-side {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+    }
+
+    .navbar-top-links .dropdown-messages,
+    .navbar-top-links .dropdown-tasks,
+    .navbar-top-links .dropdown-alerts {
+        margin-left: auto;
+    }
+}
+
+/*.navbar-static-side ul li {
+    border-bottom: 1px solid #e7e7e7;
+}*/
+
 /* CUSTOMIZE JUMBOTRON
 -------------------------------------------------- */
 .jumbotron {
     margin-top: 30px;
 }
-/* CUSTOMIZE JUMBOTRON
--------------------------------------------------- */
-/*.navbar-inverse {
-  background-color: #ffd800;
-  border-color: #ffd800;
-}*/
-
-.navbar-inverse .navbar-brand {
-  color: #000000;
-}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
+/*.navbar-wrapper {
     position: relative;
     z-index: 15;
+}*/
+.navbar{
+    padding:5px 0 5px 15px;
 }
 .nav .nav-header {
     color: #999999;
@@ -81,7 +244,7 @@ input[type="checkbox"].input-validation-error {
     text-transform: uppercase;
 }
 .nav li + .nav-header {
-    margin-top: 9px;
+    margin-top: 0px;
 }
 
 .navbar-default {
@@ -89,7 +252,7 @@ input[type="checkbox"].input-validation-error {
     border-color: #E7E7E7;
 }
 
-/* CUSTOMIZE FEEDBACK TAB & TOP
+/* CUSTOMIZE FEEDBACK
 -------------------------------------------------- */
 .uv-tab-label {
     background-color: transparent;
@@ -97,11 +260,8 @@ input[type="checkbox"].input-validation-error {
     padding: 6px 10px 2px 42px;
     text-decoration: none;
 }
-
 .uv-tab {
     position: fixed;
-    /*right: 10px;
-    bottom: 0px;*/
     z-index: 9999;
     border: 1px solid #FFF;
     border-bottom: none;
@@ -114,29 +274,28 @@ input[type="checkbox"].input-validation-error {
     -webkit-box-shadow: inset rgba(255,255,255,.25) 1px 1px 1px, rgba(0,0,0,.5) 0 1px 2px;
     box-shadow: inset rgba(255,255,255,.25) 1px 1px 1px, rgba(0,0,0,.5) 0 1px 2px;
     font: normal normal bold 14px/1em Arial, sans-serif;
-    left: 100%;
-    top: 40%;
-    transform: rotate(90deg);
-    transform-origin: left top 0;
+    right: 45px;
+    bottom: 0%;
+    transform: rotate(0deg);
+    transform-origin: right top 0;
 }
 
-
+/* CUSTOMIZE TAB & TOP
+-------------------------------------------------- */
 #back-top {
     z-index: 9999;
     position: fixed;
     bottom: 0%;
-    right: 0%;
+    right: 1px;
 }
-
 #back-top a {
-    width: 20px;
+    /*width: 20px;*/
     display: block;
     text-align: center;
     font: 11px/100% Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     text-decoration: none;
     color: #999999;
-
     /* transition */
     -webkit-transition: 1s;
     -moz-transition: 1s;
@@ -145,7 +304,6 @@ input[type="checkbox"].input-validation-error {
 #back-top a:hover {
     color: #000;
 }
-
 /* arrow icon (span tag) */
 #back-top span {
     width: 20px;
@@ -167,14 +325,10 @@ input[type="checkbox"].input-validation-error {
 #back-top a:hover span {
     background-color: #777;
 }
-/* CUSTOMIZE ROW
--------------------------------------------------- */
-.row{
-    padding:20px 0 10px 0px;
-}
+
 /* CUSTOMIZE BUTTON
 -------------------------------------------------- */
-    .btn {
+.btn {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
@@ -203,50 +357,13 @@ input[type="checkbox"].input-validation-error {
 }
 /* CUSTOMIZE FLEX
 -------------------------------------------------- */
-/*.flex-direction-nav li .prev {
-    left: -5px;
-}*/
-/*.flex-direction-nav li a {
-    background: url("images/bg_direction_navC.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    cursor: pointer;
-    display: block;
-    height: 52px;
-    margin: 15px -30px 0;
-    position: absolute;
-    text-indent: -9999em;
-    top: 40%;
-    width: 52px;
-    background: url("images/bg_direction_nav.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    cursor: pointer;
-    display: block;
-    height: 27px;
-    margin: 0px -30px 0;
-    position: absolute;
-    text-indent: -9999em;
-    top: 50%;
-    width: 31px;
-}*/
-/*Hide default arrows*/
-/*.flex-direction-nav a:before, .flex-direction-nav a.flex-next:before, .flex-next, .flex-prev{
-    content:none;
-}*/
-/*Rotate flex-next*/
-/*.flex-direction-nav li a.flex-next{
-    background-position: -52px 0;
-}*/
-/*.flexslider {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 4px solid #FFFFFF;
-    border-radius: 5px;
-    position: relative;
-}*/
 .flex-direction-nav a:before  { font-family:FontAwesome; font-size: 30px; display: inline-block; content: '\f137'; }
 .flex-direction-nav a.flex-next:before  { content: '\f138'; }
 
 .flexslider .slides > li {
     position: relative;
 }
-.flex-container {
+.flex-containerHome {
     position: relative;
     border-radius: 5px;
     max-width:1000px;
@@ -270,7 +387,6 @@ input[type="checkbox"].input-validation-error {
     text-align:center;
     width: 100%;
 }
-
 .flex-caption-home {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
     top:10px;
@@ -285,7 +401,6 @@ input[type="checkbox"].input-validation-error {
     text-align:center;
     width: 100%;
 }
-
 .flex-caption-thumbnail {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
     top:0px;
@@ -302,17 +417,16 @@ input[type="checkbox"].input-validation-error {
 }
 
 @font-face {
-  font-family: "FontAwesome";
-  src: url('../fonts/fontawesome-webfont.eot');
-  src: url('../fonts/fontawesome-webfont.eot?#iefix') format('eot'),
-       url('../fonts/fontawesome-webfont.woff') format('woff'),
-       url('../fonts/fontawesome-webfont.ttf') format('truetype'),
-       url('../fonts/fontawesome-webfont.svg#FontAwesome') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
+    font-family: "FontAwesome";
+    src: url('../fonts/fontawesome-webfont.eot');
+    src: url('../fonts/fontawesome-webfont.eot?#iefix') format('eot'),
+        url('../fonts/fontawesome-webfont.woff') format('woff'),
+        url('../fonts/fontawesome-webfont.ttf') format('truetype'),
+        url('../fonts/fontawesome-webfont.svg#FontAwesome') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
 }
-
 
 /* CUSTOMIZE TABLES
 -------------------------------------------------- */
@@ -331,31 +445,21 @@ table.tablesorter thead tr .headerSortDown {
     background-image: url(images/desc.gif);
 }
 
-/* CUSTOMIZE PANEL
--------------------------------------------------- */
-/*.panel-default > .panel-heading {
-    background-color: #f1cf17;
-    border-color: #d8bc22;
-    color: #808080;
-}*/
 /* CUSTOMIZE TEXTAREA
 -------------------------------------------------- */
 .textareaContainer {
     border: 1px solid #999;
     padding: 20px;
 }
-
 textarea {
     width: 100%;
 }
-
 .border-box {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -o-box-sizing: border-box;
 }
-
 .content-box {
     box-sizing: content-box;
     -moz-box-sizing: content-box;

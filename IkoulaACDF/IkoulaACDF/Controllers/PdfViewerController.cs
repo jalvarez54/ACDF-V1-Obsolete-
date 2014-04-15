@@ -27,5 +27,15 @@ namespace IkoulaACDF.Controllers
             //the same thing
             return View();
         }
+        public FileResult GetFile(string fileName)
+        {
+            string _fileName = "palmares1966.pdf";
+            // Force the pdf document to be displayed in the browser
+            Response.AppendHeader("Content-Disposition", "inline; filename=" + _fileName + ";");
+
+            string path = AppDomain.CurrentDomain.BaseDirectory + "MyPDFs/";
+            return File(path + _fileName, System.Net.Mime.MediaTypeNames.Application.Pdf, _fileName);
+        }
+
     }
 }

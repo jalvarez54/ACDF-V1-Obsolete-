@@ -44,7 +44,7 @@
 @helper FixTabTop()
 {
     <div id="back-top">
-            <a href="#top" title="GO TOP"><span></span></a>
+        <a href="#top" title="GO TOP"><span></span></a>
     </div>
 }
 @helper AddThis()
@@ -57,19 +57,37 @@
 }
 @helper FooterInformations()
 {
-    <hr />
-        <div class="hidden-xs text-muted" style="text-align:center;font-size:smaller">
-            Company: @Utils.GetConfigCompanyName()<br />
-            App: @Utils.GetAssemblyProduct() |
-            Design: @Utils.GetAssemblyCompany() |
-            @Utils.GetAssemblyCopyright()<br />
-            [User: @Utils.GetUserName()][Culture: @Utils.GetCulture()][UIculture: @Utils.GetUiCulture()]<br />
+    <div class="footer" id="footer">
+        <div class="bottom-line">
+            <div class="container" style="padding:0 0 15px 15px">
+                <div class="col-lg-6 col-xs-8">
+                    Email: <a href="mailto:foucauld.casa@free.fr">foucauld.casa@free.fr</a>
+                </div>
+                <div class="col-lg-6 col-xs-4">
+                    <div class="pull-right"><i class="fa fa-facebook-square fa-fw"></i><i class="fa fa-twitter-square fa-fw"></i><i class="fa fa-google-plus-square fa-fw"></i></div>
+                </div>
+            </div>
         </div>
-        <div class="text-muted" style="text-align: center; font-size: smaller">
-            Version: @Utils.GetAssemblyInformationnalVersion() | File: @Utils.GetAssemblyVersion()
-
+        <div class="container" style="padding:10px 0 20px 0">
+            <div class="col-sm-4 hidden-xs">
+                <img class="thumbnailImage" title="ACDF-Casablanca-Maroc" style="border:0; background-color: transparent; padding:0; margin:0;" alt="Feedback" src="~/Content/images/LOGO150.png">
+            </div>
+            <div class="col-sm-4">
+                <div class="hidden-xs text-muted" style="text-align:center;font-size:smaller">
+                    Company: @Utils.GetConfigCompanyName()<br />
+                    App: @Utils.GetAssemblyProduct() |
+                    Design: @Utils.GetAssemblyCompany() |
+                    @Utils.GetAssemblyCopyright()<br />
+                    [User: @Utils.GetUserName()][Culture: @Utils.GetCulture()][UIculture: @Utils.GetUiCulture()]<br />
+                </div>
+                <div class="text-muted" style="text-align: center; font-size: smaller">
+                    Version: @Utils.GetAssemblyInformationnalVersion() | File: @Utils.GetAssemblyVersion()
+                </div>
+            </div>
+            <div class="col-sm-4">
+            </div>
         </div>
-
+    </div>
 }
         }
 @helper DevFooterInformations()

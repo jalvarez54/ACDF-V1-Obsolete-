@@ -38,7 +38,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="AcdfHistory.txt">
-      <publishTime>04/05/2014 15:54:42</publishTime>
+      <publishTime>04/14/2014 10:14:45</publishTime>
     </File>
     <File Include="App_Browsers/qt.browser">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -59,7 +59,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="App_Code/MyRazorHelpers.cshtml">
-      <publishTime>04/06/2014 11:50:09</publishTime>
+      <publishTime>04/08/2014 15:13:27</publishTime>
     </File>
     <File Include="App_Diagrams/AspNetIdentity.dgml">
       <publishTime>08/02/2014 18:21:42</publishTime>
@@ -99,6 +99,30 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
     </File>
     <File Include="App_Start/WebApiConfig.cs">
       <publishTime>06/02/2014 05:56:31</publishTime>
+    </File>
+    <File Include="Archives/FouadBenchekroun/Scan10337Web.JPG">
+      <publishTime>04/14/2014 15:31:14</publishTime>
+    </File>
+    <File Include="Archives/FouadBenchekroun/Scan10338.JPG">
+      <publishTime>04/14/2014 15:31:14</publishTime>
+    </File>
+    <File Include="Archives/FouadBenchekroun/Scan10339.JPG">
+      <publishTime>04/14/2014 15:31:14</publishTime>
+    </File>
+    <File Include="Archives/FouadBenchekroun/thumb_Scan10337Web.JPG">
+      <publishTime>04/14/2014 16:10:11</publishTime>
+    </File>
+    <File Include="Archives/FouadBenchekroun/thumb_Scan10338.JPG">
+      <publishTime>04/14/2014 16:16:11</publishTime>
+    </File>
+    <File Include="Archives/FouadBenchekroun/thumb_Scan10339.JPG">
+      <publishTime>04/14/2014 16:16:11</publishTime>
+    </File>
+    <File Include="Archives/Salla/Salla_6.jpg">
+      <publishTime>04/14/2014 16:02:57</publishTime>
+    </File>
+    <File Include="Archives/Salla/Salla_6_small.jpg">
+      <publishTime>04/14/2014 16:02:57</publishTime>
     </File>
     <File Include="Areas/Administration/AdministrationAreaRegistration.cs">
       <publishTime>02/02/2014 23:38:37</publishTime>
@@ -434,7 +458,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/IkoulaACDF.dll">
-      <publishTime>04/06/2014 09:33:50</publishTime>
+      <publishTime>04/14/2014 21:23:27</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
       <publishTime>03/08/2014 08:17:21</publishTime>
@@ -734,7 +758,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>03/27/2014 13:22:10</publishTime>
     </File>
     <File Include="Content/elastislidestyle.css">
-      <publishTime>03/04/2014 14:13:53</publishTime>
+      <publishTime>04/03/2014 14:13:53</publishTime>
     </File>
     <File Include="Content/fancybox-x.png">
       <publishTime>03/10/2014 08:03:18</publishTime>
@@ -1031,7 +1055,10 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>07/03/2014 03:03:31</publishTime>
     </File>
     <File Include="Content/images/LOGO.png">
-      <publishTime>04/01/2014 09:59:53</publishTime>
+      <publishTime>01/04/2014 09:59:53</publishTime>
+    </File>
+    <File Include="Content/images/LOGO150.png">
+      <publishTime>04/08/2014 14:47:16</publishTime>
     </File>
     <File Include="Content/images/ma_dp_bd.gif">
       <publishTime>03/10/2014 18:20:15</publishTime>
@@ -1061,7 +1088,10 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>03/10/2014 18:19:52</publishTime>
     </File>
     <File Include="Content/images/Tramp0.png">
-      <publishTime>01/04/2014 09:55:14</publishTime>
+      <publishTime>04/01/2014 09:55:14</publishTime>
+    </File>
+    <File Include="Content/images/Tramp50.png">
+      <publishTime>04/08/2014 14:45:42</publishTime>
     </File>
     <File Include="Content/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -1187,10 +1217,10 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>03/09/2014 13:12:46</publishTime>
     </File>
     <File Include="Content/sb-admin.css">
-      <publishTime>04/05/2014 09:20:44</publishTime>
+      <publishTime>04/08/2014 08:52:34</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>04/06/2014 07:50:02</publishTime>
+      <publishTime>04/09/2014 11:16:19</publishTime>
     </File>
     <File Include="Content/slate/bootstrap.css">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -1533,6 +1563,81 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
     </File>
     <File Include="images/sort_desc_disabled.png">
       <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Medias/Images/01Moham78.jpg">
+      <publishTime>04/13/2014 18:15:30</publishTime>
+    </File>
+    <File Include="Medias/Images/CavalerieJ71.jpg">
+      <publishTime>04/13/2014 17:48:16</publishTime>
+    </File>
+    <File Include="Medias/Images/ecusson.jpg">
+      <publishTime>04/13/2014 17:48:25</publishTime>
+    </File>
+    <File Include="Medias/Images/Ident1.jpg">
+      <publishTime>04/13/2014 17:01:49</publishTime>
+    </File>
+    <File Include="Medias/Images/JCBASDEKIS.bmp">
+      <publishTime>10/04/2014 08:01:06</publishTime>
+    </File>
+    <File Include="Medias/Images/jcbasdekis.png">
+      <publishTime>04/10/2014 09:06:05</publishTime>
+    </File>
+    <File Include="Medias/Images/LaJarreBrisee.jpg">
+      <publishTime>04/10/2014 08:00:47</publishTime>
+    </File>
+    <File Include="Medias/Images/Madrid2.jpg">
+      <publishTime>04/13/2014 17:48:33</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_ EGYPTE.jpg">
+      <publishTime>04/11/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_AIR-FRANCE.jpg">
+      <publishTime>04/11/2014 19:18:12</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_AVIRON.jpg">
+      <publishTime>04/11/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_BAYONNE.jpg">
+      <publishTime>04/11/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_BIARRITZ_PARME.jpg">
+      <publishTime>04/11/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_CHTI.jpg">
+      <publishTime>04/11/2014 19:21:22</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_GREC.gif">
+      <publishTime>04/11/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_MAROC-1.gif">
+      <publishTime>04/11/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_MAROC-2.gif">
+      <publishTime>04/11/2014 19:22:09</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_MEXICAIN.jpg">
+      <publishTime>04/11/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_OFFICIEL.png">
+      <publishTime>04/11/2014 19:22:29</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_PAYS-BASQUE.gif">
+      <publishTime>04/11/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_PECHEUR.jpg">
+      <publishTime>04/11/2014 19:22:52</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_REAL.gif">
+      <publishTime>04/11/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_TAHITI.gif">
+      <publishTime>04/11/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_TORERO.jpg">
+      <publishTime>04/11/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Medias/LogosTramp/TRAMP_VENDEE.JPG">
+      <publishTime>04/11/2014 14:37:18</publishTime>
     </File>
     <File Include="Medias/Photos/1000.txt">
       <publishTime>03/09/2014 12:23:49</publishTime>
@@ -11687,7 +11792,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>10/02/2014 15:58:22</publishTime>
     </File>
     <File Include="Models/AccountViewModels.cs">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/04/2014 12:07:47</publishTime>
     </File>
     <File Include="Models/CategoriesWebApiViewModel.cs">
       <publishTime>06/02/2014 08:05:14</publishTime>
@@ -11711,7 +11816,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Models/ModelACDF.edmx.diagram">
-      <publishTime>01/04/2014 18:59:06</publishTime>
+      <publishTime>04/01/2014 18:59:06</publishTime>
     </File>
     <File Include="Models/MyErrorModel.cs">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -11766,6 +11871,12 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
     </File>
     <File Include="Mvc5Ef6WebApiDataFirstNthW.csproj.user">
       <publishTime>04/03/2014 19:58:01</publishTime>
+    </File>
+    <File Include="MyPDFs/bazin_charles_de_foucauld.pdf">
+      <publishTime>04/14/2014 16:00:12</publishTime>
+    </File>
+    <File Include="MyPDFs/LexiqueDeMotsEnUsageAfoucauld.pdf">
+      <publishTime>04/06/2014 15:32:16</publishTime>
     </File>
     <File Include="MyPDFs/Palmares 1966.pdf">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -12014,7 +12125,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>06/02/2014 06:48:01</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/Staging %28Ikoula%29.pubxml.user">
-      <publishTime>04/06/2014 08:25:54</publishTime>
+      <publishTime>04/14/2014 19:37:01</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/Test %28NAS%29.pubxml">
       <publishTime>03/02/2014 15:03:26</publishTime>
@@ -12425,7 +12536,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>04/05/2014 17:26:50</publishTime>
+      <publishTime>04/14/2014 16:10:37</publishTime>
     </File>
     <File Include="Startup.cs">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -12568,11 +12679,14 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
     <File Include="uploads/ef173b05-6488-412b-85d1-9b5bde90a557_IDJAlvarez.jpg">
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
+    <File Include="Views/Account/Confirm.cshtml">
+      <publishTime>04/10/2014 16:25:01</publishTime>
+    </File>
     <File Include="Views/Account/Delete.cshtml">
       <publishTime>03/27/2014 09:36:15</publishTime>
     </File>
     <File Include="Views/Account/Edit.cshtml">
-      <publishTime>02/04/2014 17:32:25</publishTime>
+      <publishTime>04/10/2014 17:00:33</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
       <publishTime>03/07/2014 00:52:08</publishTime>
@@ -12581,19 +12695,19 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>03/07/2014 00:52:08</publishTime>
     </File>
     <File Include="Views/Account/Index.cshtml">
-      <publishTime>03/27/2014 09:11:40</publishTime>
+      <publishTime>04/14/2014 19:03:13</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>03/21/2014 15:27:26</publishTime>
+      <publishTime>04/08/2014 13:50:21</publishTime>
     </File>
     <File Include="Views/Account/Manage.cshtml">
-      <publishTime>03/07/2014 00:52:08</publishTime>
+      <publishTime>04/14/2014 04:01:09</publishTime>
     </File>
     <File Include="Views/Account/Register.cshtml">
-      <publishTime>02/04/2014 17:33:38</publishTime>
+      <publishTime>04/07/2014 19:05:43</publishTime>
     </File>
     <File Include="Views/Account/RestrictedUsersList.cshtml">
-      <publishTime>04/05/2014 16:27:02</publishTime>
+      <publishTime>04/08/2014 13:50:21</publishTime>
     </File>
     <File Include="Views/Account/UserRoles.cshtml">
       <publishTime>03/19/2014 13:57:39</publishTime>
@@ -12644,16 +12758,22 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>03/30/2014 16:07:58</publishTime>
     </File>
     <File Include="Views/GuessBook/Edit.cshtml">
-      <publishTime>03/31/2014 04:23:31</publishTime>
+      <publishTime>04/08/2014 14:23:25</publishTime>
     </File>
     <File Include="Views/GuessBook/Index.cshtml">
-      <publishTime>04/05/2014 16:31:30</publishTime>
+      <publishTime>04/09/2014 18:37:12</publishTime>
     </File>
     <File Include="Views/GuessBook/_CreatePartial.cshtml">
       <publishTime>03/31/2014 13:58:45</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>03/07/2014 00:52:03</publishTime>
+    </File>
+    <File Include="Views/Home/Anecdotes.cshtml">
+      <publishTime>04/13/2014 17:46:43</publishTime>
+    </File>
+    <File Include="Views/Home/Archives.cshtml">
+      <publishTime>04/14/2014 16:37:48</publishTime>
     </File>
     <File Include="Views/Home/Carousel.cshtml">
       <publishTime>07/02/2014 13:58:15</publishTime>
@@ -12662,19 +12782,25 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>02/02/2014 23:49:11</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>03/28/2014 18:40:23</publishTime>
+      <publishTime>04/08/2014 14:20:35</publishTime>
     </File>
     <File Include="Views/Home/Index - Copier.cshtml">
-      <publishTime>03/12/2014 07:33:33</publishTime>
+      <publishTime>04/07/2014 14:34:22</publishTime>
     </File>
     <File Include="Views/Home/Index - Old.cshtml">
-      <publishTime>03/12/2014 07:33:33</publishTime>
+      <publishTime>04/08/2014 13:50:21</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>04/06/2014 10:15:44</publishTime>
+      <publishTime>04/14/2014 04:16:06</publishTime>
     </File>
     <File Include="Views/Home/ModalPartial.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Home/Todo.cshtml">
+      <publishTime>04/10/2014 20:05:29</publishTime>
+    </File>
+    <File Include="Views/Home/Tramp.cshtml">
+      <publishTime>04/11/2014 19:31:24</publishTime>
     </File>
     <File Include="Views/Home/Video.cshtml">
       <publishTime>05/03/2014 21:21:04</publishTime>
@@ -12692,25 +12818,64 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Home/_HomeAspNetUserPartial.cshtml">
-      <publishTime>03/04/2014 01:40:57</publishTime>
+      <publishTime>04/14/2014 16:59:57</publishTime>
     </File>
     <File Include="Views/Home/_HomeBirthDayPartial.cshtml">
-      <publishTime>04/03/2014 17:34:16</publishTime>
+      <publishTime>03/04/2014 17:34:16</publishTime>
     </File>
     <File Include="Views/Home/_HomeGuessBookPartial.cshtml">
-      <publishTime>03/04/2014 01:33:16</publishTime>
+      <publishTime>04/11/2014 11:25:18</publishTime>
+    </File>
+    <File Include="Views/Home/_HomeLastFiveGuessBookPartial.cshtml">
+      <publishTime>04/11/2014 11:31:13</publishTime>
     </File>
     <File Include="Views/Home/_HomeRecentPhotoPartial.cshtml">
-      <publishTime>03/04/2014 12:56:50</publishTime>
+      <publishTime>04/11/2014 20:33:27</publishTime>
     </File>
     <File Include="Views/Home/_ModalPartial.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel01Partial.cshtml">
+      <publishTime>04/13/2014 08:25:51</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel02Partial.cshtml">
+      <publishTime>04/13/2014 08:22:59</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel03Partial.cshtml">
+      <publishTime>04/13/2014 16:56:41</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel04Partial.cshtml">
+      <publishTime>04/13/2014 08:24:13</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel05Partial.cshtml">
+      <publishTime>04/14/2014 04:06:14</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel06Partial.cshtml">
+      <publishTime>04/14/2014 05:15:56</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel07Partial.cshtml">
+      <publishTime>04/13/2014 18:07:21</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel08Partial.cshtml">
+      <publishTime>04/13/2014 16:56:41</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel09Partial.cshtml">
+      <publishTime>04/13/2014 16:56:41</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel10Partial.cshtml">
+      <publishTime>04/13/2014 16:56:41</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel7Partial.cshtml">
+      <publishTime>12/04/2014 08:28:05</publishTime>
+    </File>
+    <File Include="Views/Home/_Panel9Partial.cshtml">
+      <publishTime>12/04/2014 08:28:05</publishTime>
     </File>
     <File Include="Views/Home/_View1.cshtml">
       <publishTime>03/29/2014 23:28:03</publishTime>
     </File>
     <File Include="Views/index.html">
-      <publishTime>04/04/2014 16:39:31</publishTime>
+      <publishTime>04/08/2014 13:50:17</publishTime>
     </File>
     <File Include="Views/MyError/AccessDenied.cshtml">
       <publishTime>03/18/2014 17:24:48</publishTime>
@@ -12736,8 +12901,11 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
     <File Include="Views/MyError/UnHandledException.cshtml">
       <publishTime>03/18/2014 17:24:49</publishTime>
     </File>
+    <File Include="Views/PdfViewer/GetFile.cshtml">
+      <publishTime>04/14/2014 05:15:57</publishTime>
+    </File>
     <File Include="Views/PdfViewer/Index.cshtml">
-      <publishTime>03/31/2014 13:38:26</publishTime>
+      <publishTime>04/14/2014 16:42:20</publishTime>
     </File>
     <File Include="Views/PdfViewer/IndexBUG.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -12748,8 +12916,11 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
     <File Include="Views/PdfViewer/ViewerBUG.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
-    <File Include="Views/PdfViewer/ViewerObject.cshtml">
+    <File Include="Views/PdfViewer/ViewerOBJ.cshtml">
       <publishTime>03/31/2014 13:19:32</publishTime>
+    </File>
+    <File Include="Views/PdfViewer/ViewerObject.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/PdfViewer/_ViewerPartial.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -12758,19 +12929,19 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Photo/Category.cshtml">
-      <publishTime>03/29/2014 06:30:36</publishTime>
+      <publishTime>04/08/2014 14:20:35</publishTime>
     </File>
     <File Include="Views/Photo/Create.cshtml">
-      <publishTime>03/27/2014 08:40:13</publishTime>
+      <publishTime>04/09/2014 19:34:51</publishTime>
     </File>
     <File Include="Views/Photo/Delete.cshtml">
       <publishTime>03/28/2014 08:16:01</publishTime>
     </File>
     <File Include="Views/Photo/Details.cshtml">
-      <publishTime>03/28/2014 08:16:01</publishTime>
+      <publishTime>04/09/2014 19:23:58</publishTime>
     </File>
     <File Include="Views/Photo/Edit.cshtml">
-      <publishTime>03/27/2014 08:40:13</publishTime>
+      <publishTime>04/08/2014 13:50:17</publishTime>
     </File>
     <File Include="Views/Photo/GetByCategory.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -12779,10 +12950,10 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>01/04/2014 11:45:52</publishTime>
     </File>
     <File Include="Views/Photo/GetPhotos.cshtml">
-      <publishTime>04/06/2014 08:24:36</publishTime>
+      <publishTime>04/09/2014 18:24:30</publishTime>
     </File>
     <File Include="Views/Photo/Index.cshtml">
-      <publishTime>03/04/2014 12:57:27</publishTime>
+      <publishTime>04/09/2014 19:20:51</publishTime>
     </File>
     <File Include="Views/Photo/IndexAll.cshtml">
       <publishTime>03/28/2014 07:22:26</publishTime>
@@ -12794,16 +12965,16 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Photo/RecentPhoto.cshtml">
-      <publishTime>03/04/2014 12:50:10</publishTime>
+      <publishTime>04/09/2014 18:26:25</publishTime>
     </File>
     <File Include="Views/Photo/SubCategory.cshtml">
-      <publishTime>04/05/2014 09:05:51</publishTime>
+      <publishTime>04/08/2014 14:20:35</publishTime>
     </File>
     <File Include="Views/Photo/_PhotoModalPartial.cshtml">
       <publishTime>10/03/2014 06:38:00</publishTime>
     </File>
     <File Include="Views/Photo/_RecentPhotoPartial.cshtml">
-      <publishTime>03/04/2014 12:53:13</publishTime>
+      <publishTime>04/03/2014 12:53:13</publishTime>
     </File>
     <File Include="Views/Product/Create.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -12835,8 +13006,50 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
     <File Include="Views/Product/WebApiClientViewProductsJQuery.cshtml">
       <publishTime>05/02/2014 15:59:40</publishTime>
     </File>
+    <File Include="Views/Shared/Articles/Anecdote-01.cshtml">
+      <publishTime>04/13/2014 16:48:05</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/Anecdote-02.cshtml">
+      <publishTime>04/13/2014 09:59:17</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/Anecdote-03.cshtml">
+      <publishTime>04/13/2014 13:14:44</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/Anecdote-04.cshtml">
+      <publishTime>04/13/2014 13:17:44</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/Anecdote-05.cshtml">
+      <publishTime>04/14/2014 14:31:19</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/Anecdote-06.cshtml">
+      <publishTime>04/14/2014 14:40:49</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/Anecdote-10.cshtml">
+      <publishTime>04/13/2014 18:05:51</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/Anecdote-11.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/Anecdote-12.cshtml">
+      <publishTime>04/13/2014 16:42:06</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/Anecdote-13.cshtml">
+      <publishTime>04/13/2014 16:42:06</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/Anecdote-14.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/Anecdote-15.cshtml">
+      <publishTime>04/13/2014 16:42:06</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/AnecdoteVierge.cshtml">
+      <publishTime>04/13/2014 09:57:59</publishTime>
+    </File>
+    <File Include="Views/Shared/Articles/PanelVierge.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
     <File Include="Views/Shared/EditorTemplates/Date.cshtml">
-      <publishTime>02/04/2014 17:30:52</publishTime>
+      <publishTime>04/02/2014 17:30:52</publishTime>
     </File>
     <File Include="Views/Shared/EditorTemplates/SelectRoleEditorViewModel.cshtml">
       <publishTime>03/19/2014 13:59:02</publishTime>
@@ -12850,11 +13063,14 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
     <File Include="Views/Shared/_Carousel.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
+    <File Include="Views/Shared/_ComingSoonPartial.cshtml">
+      <publishTime>04/10/2014 19:06:56</publishTime>
+    </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/06/2014 09:33:22</publishTime>
+      <publishTime>04/14/2014 19:36:14</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>04/04/2014 23:14:40</publishTime>
+      <publishTime>04/14/2014 04:42:20</publishTime>
     </File>
     <File Include="Views/Shared/_Modal.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -12862,11 +13078,14 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
     <File Include="Views/Shared/_ModalPartial.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
+    <File Include="Views/Shared/_NewsPartial.cshtml">
+      <publishTime>04/14/2014 16:44:21</publishTime>
+    </File>
     <File Include="Views/Shared/_RecentPhoto.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Video/Index.cshtml">
-      <publishTime>03/29/2014 07:43:19</publishTime>
+      <publishTime>04/08/2014 13:50:17</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/07/2014 00:52:03</publishTime>
@@ -12887,7 +13106,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, consultez la p
       <publishTime>03/07/2014 00:52:03</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/22/2014 23:52:52</publishTime>
+      <publishTime>04/10/2014 17:56:16</publishTime>
     </File>
     <File Include="Web.Debug.config">
       <publishTime>02/03/2014 08:55:25</publishTime>

@@ -88,6 +88,8 @@ namespace IkoulaACDF.Models
 
         }
 
+        public bool ConfirmedEmail { get; set; }
+
         [Required]
         [Display(Name = "Nom d’utilisateur")]
         public string UserName { get; set; }
@@ -113,12 +115,12 @@ namespace IkoulaACDF.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
         [Required]
-        [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessage = "Your email address is not in a valid format. Example of correct format: joe.example@example.org")]
+        [RegularExpression(@"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,24}))$", ErrorMessage = "Your email address is not in a valid format. Example of correct format: joe.example@example.org")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/mm/yyyy}")]
         public System.DateTime BirthDate { get; set; }
         [Required]
         public int FirstYearSchool { get; set; }
@@ -171,6 +173,7 @@ namespace IkoulaACDF.Models
         // Allow Initialization with an instance of ApplicationUser:
         public EditUserViewModel(ApplicationUser user)
         {
+            this.ConfirmedEmail = user.ConfirmedEmail;
             this.UserName = user.UserName;
             this.FirstName = user.FirstName;
             this.LastName = user.LastName;
@@ -192,7 +195,9 @@ namespace IkoulaACDF.Models
             this.YearLast = (IEnumerable<System.Web.Mvc.SelectListItem>)years;
             this.RegistrationDate = user.RegistrationDate;
         }
-
+        [Required]
+        [Display(Name = "Confirmed Email")]
+        public bool ConfirmedEmail { get; set; }
         [Required]
         [Display(Name = "User Name")]
         public string UserName { get; set; }
@@ -236,6 +241,7 @@ namespace IkoulaACDF.Models
         {
             var user = new ApplicationUser()
             {
+                ConfirmedEmail = this.ConfirmedEmail,
                 UserName = this.UserName,
                 FirstName = this.FirstName,
                 LastName = this.LastName,

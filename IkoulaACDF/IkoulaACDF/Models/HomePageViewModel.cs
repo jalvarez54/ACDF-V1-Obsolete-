@@ -9,13 +9,16 @@ namespace IkoulaACDF.Models
     {
         public IEnumerable<PhotoViewModel> Photos { get; set; }
         public IEnumerable<AcdfGuessBook> GuessBooks { get; set; }
+        public IEnumerable<AcdfGuessBook> LastFiveGuessBooks { get; set; }
         public IEnumerable<AspNetUser> AspNetUsers { get; set; }
         public IDictionary<AspNetUser, int> BirthDays { get; set; }
-        public HomePageViewModel(IEnumerable<PhotoViewModel> photos, IEnumerable<AcdfGuessBook> guessBooks, IEnumerable<AspNetUser> aspnetUsers, IEnumerable<AspNetUser> birthdays)
+        public HomePageViewModel(IEnumerable<PhotoViewModel> photos, IEnumerable<AcdfGuessBook> guessBooks, IEnumerable<AcdfGuessBook> lastFiveGuessBooks, IEnumerable<AspNetUser> aspnetUsers, IEnumerable<AspNetUser> birthdays)
         {
             Photos = photos;
 
             GuessBooks = guessBooks;
+
+            LastFiveGuessBooks = lastFiveGuessBooks;
 
             AspNetUsers = aspnetUsers;
 

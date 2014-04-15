@@ -35,7 +35,7 @@ namespace IkoulaACDF.Models
         [NotMapped]
         public HttpPostedFileWrapper Photo { get; set; }
         public Nullable<System.DateTime> RegistrationDate { get; set; }
-
+        public bool ConfirmedEmail { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
