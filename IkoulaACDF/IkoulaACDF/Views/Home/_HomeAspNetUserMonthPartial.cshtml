@@ -1,0 +1,20 @@
+﻿@model IkoulaACDF.Models.HomePageViewModel
+
+@foreach (var item in Model.AspNetUsersMonth)
+{
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <img src="@item.PhotoUrl" title="@item.FirstName @item.LastName" alt="@item.UserName" style="max-width:50px" />
+        </div>
+        <div class="panel-body">
+            <b>@Html.DisplayFor(modelItem => item.FirstName)</b> @Html.DisplayFor(modelItem => item.LastName)<br />
+        </div>
+        <div class="panel-footer">
+            Birthday: <b>@Html.DisplayFor(modelItem => item.BirthDate)</b><br />
+            Last Year: <b>@Html.DisplayFor(modelItem => item.LastYearSchool)</b><br />
+            Registration: <b>@Html.DisplayFor(modelItem => item.RegistrationDate)</b><br />
+        </div>
+    </div>
+}
+<hr />

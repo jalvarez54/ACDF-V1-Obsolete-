@@ -14,11 +14,11 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <img class="img-rounded" src="@item.AspNetUser.PhotoUrl" title="@item.AspNetUser.UserName" alt="@item.AspNetUser.UserName" />
+                <img src="@item.AspNetUser.PhotoUrl" title="@item.AspNetUser.FirstName @item.AspNetUser.LastName" alt="@item.AspNetUser.FirstName @item.AspNetUser.LastName" />
             </div>
             <div class="panel-body">
                 <b>@Html.DisplayFor(modelItem => item.Date)</b><br />
-                @Html.TextAreaFor(modelItem => item.Message, new { @class = "border-box", @readonly = true })
+                @Html.TextAreaFor(modelItem => item.Message, new { @class = "border-box", @readonly = true, rows = "3", disabled = true})
             </div>
 
             <div class="panel-footer">

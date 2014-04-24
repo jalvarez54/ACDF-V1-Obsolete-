@@ -131,5 +131,21 @@ Version 05 = V0.0.0.5 {0.5.Alpha}
 * ADD: Home/Tramp.cshtml
 * ADD: Action /Home/Anecdotes
 * BUG: need ViewBag to be global for badges value ==> Resolve using Application var: 
-    this.HttpContext.ApplicationInstance.Application.Add("CountMembers", ViewBag.CountMembers);
-
+    this.HttpContext.ApplicationInstance.Application.Add("CountMembers", ViewBag.CountMembers); Not completely resolved
+====================================
+Version 06 = V0.0.0.6 {0.6.Alpha}
+====================================
+* ADD: Google Docs in place of pdf.js
+* BUG: julio plusieurs inscriptions ? ==> ADD: if (user.ConfirmedEmail == false) in ConfirmEmail(string Token, string Email) dont know if resolve pb ?
+* BUG: case à cocher ?
+* BUG: Medias menu hidden in mobile mode body {padding-top: 60px to 120px; in Site.css
+* CHANGE: Refactoring home page
+* BUG: Dont save guessbook if empty ==> if (acdfguessbook.Message != string.Empty) in GuessBook controller
+* BUG: Dont show user if email not confirmed ==> where u.ConfirmedEmail == true
+* INSTALL: Install-Package jQuery.InputMask -Version 2.5.0 
+* TODO: Version with local database
+* ID: using Microsoft.AspNet.Identity; for extension method: User.Identity.GetUserId()
+* TODO: Slider filter ==> ADD periode in GetPhoto
+* BUG Edit account dont display errors
+* ADD: Dropdownlist for period
+* TODO: Messagerie

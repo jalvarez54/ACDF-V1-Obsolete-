@@ -51,7 +51,7 @@ namespace IkoulaACDF.Models
         public string LastName { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
-        public System.DateTime BirthDate { get; set; }
+        public Nullable<System.DateTime> BirthDate { get; set; }
         public int LastYearSchool { get; set; }
         public string LastClass { get; set; }
         public string ActualCountry { get; set; }
@@ -120,8 +120,10 @@ namespace IkoulaACDF.Models
         public string Email { get; set; }
         [Required]
         [DataType(DataType.Date)]
+        //[DateValidation]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/mm/yyyy}")]
-        public System.DateTime BirthDate { get; set; }
+        //[RegularExpression(@"^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$", ErrorMessage = "Your date is not in a valid format. Example of correct format: 31/12/1955")]
+        public Nullable<System.DateTime> BirthDate { get; set; }
         [Required]
         public int FirstYearSchool { get; set; }
         [Required]
@@ -210,10 +212,9 @@ namespace IkoulaACDF.Models
         [Required]
         [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$", ErrorMessage = "Your email address is not in a valid format. Example of correct format: joe.example@example.org")]
         public string Email { get; set; }
-        [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
-        public System.DateTime BirthDate { get; set; }
+        public Nullable<System.DateTime> BirthDate { get; set; }
         [Required]
         public int FirstYearSchool { get; set; }
         [Required]

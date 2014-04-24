@@ -20,7 +20,7 @@ namespace IkoulaACDF.Models
         [Required]
         public string Email { get; set; }
         [Required]
-        public System.DateTime BirthDate { get; set; }
+        public Nullable<System.DateTime> BirthDate { get; set; }
         [Required]
         public int FirstYearSchool { get; set; }
         [Required]

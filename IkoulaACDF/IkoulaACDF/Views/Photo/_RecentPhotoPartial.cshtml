@@ -19,14 +19,14 @@
                 @foreach (var item in Model)
                 {
                     <div class="thumbnail">
-                        @{string myTitle = item.Description + " : " + item.Place;}
+                        @{string myTitle = item.SchoolPeriod + " : " + item.Place;}
                         <img src="@item.ThumbPath" alt="" />
                         <div class="caption">
-                            <h4>@item.Date</h4>
+                            <h4>@item.Date.Value.ToShortDateString()</h4>
                             @if (item.SubCategoryId == 33)
                             {
                                 <p>
-                                    @item.SchoolPeriod<br />
+                                    @item.SchoolPeriod : @item.Place<br />
                                     @item.UserName<br />
                                     @item.CategoryName
                                 </p>
@@ -34,7 +34,7 @@
                             else
                             {
                                 <p>
-                                    @item.SchoolPeriod<br />
+                                    @item.SchoolPeriod : @item.Place<br />
                                     @item.UserName<br />
                                     @item.CategoryName / @item.SubCategoryName
                                 </p>

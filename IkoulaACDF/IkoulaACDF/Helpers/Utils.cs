@@ -14,11 +14,11 @@ namespace IkoulaACDF.Helpers
     public class Utils
     {
 
-        public static string GetCountGuessBooks(HttpContextBase cela)
+        public static string GetGlobalValue(HttpContextBase cela, string key)
         {
             try
             {
-                return cela.ApplicationInstance.Application.Get("CountGuessBooks").ToString();
+                return cela.ApplicationInstance.Application.Get(key).ToString();
             }
             catch (Exception)
             {
@@ -26,18 +26,31 @@ namespace IkoulaACDF.Helpers
             }
             return null;
         }
-        public static string GetCountMembers(HttpContextBase cela)
-        {
-            try
-            {
-                return cela.ApplicationInstance.Application.Get("CountMembers").ToString();
-            }
-            catch (Exception)
-            {
 
-            }
-            return null;
-        }
+        //public static string GetCountGuessBooks(HttpContextBase cela)
+        //{
+        //    try
+        //    {
+        //        return cela.ApplicationInstance.Application.Get("CountGuessBooks").ToString();
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //    }
+        //    return null;
+        //}
+        //public static string GetCountMembers(HttpContextBase cela)
+        //{
+        //    try
+        //    {
+        //        return cela.ApplicationInstance.Application.Get("CountMembers").ToString();
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //    }
+        //    return null;
+        //}
         public static void SendMail(string body, string subject, string firstName, string lastName, string email)
         {
             string myBody = string.Empty;

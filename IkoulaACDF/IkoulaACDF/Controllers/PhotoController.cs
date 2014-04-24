@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using IkoulaACDF.Models;
 using PagedList;
 using IkoulaACDF.Helpers;
+using Microsoft.AspNet.Identity;
 
 namespace IkoulaACDF.Controllers
 {
@@ -92,7 +93,7 @@ namespace IkoulaACDF.Controllers
                 {
                     return RedirectToAction("Category", "Photo", null);
                 }
-                return RedirectToAction("GetPhotos", new { categoryId = categoryID, subCategoryId = 33 });
+                return RedirectToAction("GetPhotos", new { categoryId = categoryID, subCategoryId = 33});
             }
 
             var model = from s in db.AcdfSubCategories.Where(c => c.CategoryId == categoryID)
@@ -107,37 +108,89 @@ namespace IkoulaACDF.Controllers
             return View(model.ToList());
         }
 
-        public ActionResult GetPhotos(int categoryId, int subCategoryId)
+        public ActionResult GetPhotos(int categoryId, int subCategoryId, string periode)
         {
+            var per =
+                (from p in db.AcdfPhotoes.Where(p => p.CategoryId == categoryId && p.SubCategoryId == subCategoryId).OrderBy(p => p.CategoryId)
+                join c in db.AcdfCategories on p.CategoryId equals c.CategoryId
+                join s in db.AcdfSubCategories on p.SubCategoryId equals s.SubCategoryId
+                orderby p.SchoolPeriod
+                select (new { period = p.SchoolPeriod })).Distinct().OrderBy(a => a.period).ToList();
 
-        var photos =
-            from p in db.AcdfPhotoes.Where(p => p.CategoryId == categoryId && p.SubCategoryId == subCategoryId)
-            join c in db.AcdfCategories on p.CategoryId equals c.CategoryId
-            join s in db.AcdfSubCategories on p.SubCategoryId equals s.SubCategoryId
-            orderby p.CategoryId
-            select new PhotoViewModel
+            List<string> l = new List<string>();
+
+            foreach(var p in per)
             {
-                PhotoId = p.PhotoId,
-                Path = p.Path,
-                ThumbPath = p.ThumbPath,
-                CategoryName = c.CategoryName,
-                SubCategoryName = s.SubCategoryName,
-                Description = p.Description,
-                Place = p.Place,
-                UserName = p.UserName,
-                SchoolPeriod = p.SchoolPeriod,
-                Date = p.Date
-            };
-        ViewBag.CatId = categoryId;
-        ViewBag.SubCatId = subCategoryId;
-        ViewBag.Count = photos.Count();
-        // * BUG: Exception in http://www.jow-alva.net/ACDF/Photo/GetPhotos?categoryID=16&subCategoryID=50 no element
-        if (ViewBag.Count == 0)
-        {
-            return RedirectToAction("Category","Photo",null);
-        }
+                l.Add(p.period);
+            }
+            ViewBag.Periodes = l;
 
-        return View(photos.ToList());
+            if (periode == null)
+            {
+                var photos =
+                    from p in db.AcdfPhotoes.Where(p => p.CategoryId == categoryId && p.SubCategoryId == subCategoryId).OrderBy(p => p.CategoryId)
+                    join c in db.AcdfCategories on p.CategoryId equals c.CategoryId
+                    join s in db.AcdfSubCategories on p.SubCategoryId equals s.SubCategoryId
+                    orderby p.SchoolPeriod
+                    select new PhotoViewModel
+                    {
+                        PhotoId = p.PhotoId,
+                        Path = p.Path,
+                        ThumbPath = p.ThumbPath,
+                        CategoryName = c.CategoryName,
+                        SubCategoryName = s.SubCategoryName,
+                        Description = p.Description,
+                        Place = p.Place,
+                        UserName = p.UserName,
+                        SchoolPeriod = p.SchoolPeriod,
+                        Date = p.Date,
+                        Periodes = l,
+                    };
+                        ViewBag.CatId = categoryId;
+                        ViewBag.SubCatId = subCategoryId;
+                        ViewBag.Count = photos.Count();
+                        // * BUG: Exception in http://www.jow-alva.net/ACDF/Photo/GetPhotos?categoryID=16&subCategoryID=50 no element
+                        if (ViewBag.Count == 0)
+                        {
+                            return RedirectToAction("Category", "Photo", null);
+                        }
+
+                        return View(photos.ToList());
+
+            }
+            else
+            {
+                var photos =
+                    from p in db.AcdfPhotoes.Where(p => p.CategoryId == categoryId && p.SubCategoryId == subCategoryId && p.SchoolPeriod == periode).OrderBy(p => p.CategoryId)
+                    join c in db.AcdfCategories on p.CategoryId equals c.CategoryId
+                    join s in db.AcdfSubCategories on p.SubCategoryId equals s.SubCategoryId
+                    orderby p.SchoolPeriod
+                    select new PhotoViewModel
+                    {
+                        PhotoId = p.PhotoId,
+                        Path = p.Path,
+                        ThumbPath = p.ThumbPath,
+                        CategoryName = c.CategoryName,
+                        SubCategoryName = s.SubCategoryName,
+                        Description = p.Description,
+                        Place = p.Place,
+                        UserName = p.UserName,
+                        SchoolPeriod = p.SchoolPeriod,
+                        Date = p.Date,
+                        Periodes = l,
+                    };
+                ViewBag.CatId = categoryId;
+                ViewBag.SubCatId = subCategoryId;
+                ViewBag.Count = photos.Count();
+                // * BUG: Exception in http://www.jow-alva.net/ACDF/Photo/GetPhotos?categoryID=16&subCategoryID=50 no element
+                if (ViewBag.Count == 0)
+                {
+                    return RedirectToAction("Category", "Photo", null);
+                }
+
+                return View(photos.ToList());
+
+            }
         }
 
         // GET: /Photo/Details/5
@@ -186,6 +239,7 @@ namespace IkoulaACDF.Controllers
                 CategoryName = db.AcdfCategories.Find(catId).CategoryName,
                 SubCategoryName = db.AcdfSubCategories.Find(subCatId).SubCategoryName,
             };
+
             return View(model);
         }
 
@@ -210,6 +264,7 @@ namespace IkoulaACDF.Controllers
                     UserName = Helpers.Utils.GetUserName(),
                     SchoolPeriod = model.SchoolPeriod,
                     Date = DateTime.Now,
+                    UserId = User.Identity.GetUserId(),
                 };
                 // Retreive CategoryName and SubCategoryName for path calculation
                 var categoryName = db.AcdfCategories.Find(model.CategoryId).CategoryName;
@@ -235,6 +290,15 @@ namespace IkoulaACDF.Controllers
                 }
 
             }
+            //// Generate Periodes
+            List<System.Web.Mvc.SelectListItem> periode = new List<System.Web.Mvc.SelectListItem>();
+            periode.Add(new System.Web.Mvc.SelectListItem { Value = "0000-0000", Text = "Inconnue" });
+
+            for (int y = 1900; y <= DateTime.Now.Year - 1; y++)
+            {
+                periode.Add(new System.Web.Mvc.SelectListItem { Value = y.ToString() + "-" + (y + 1).ToString(), Text = y.ToString() + "-" + (y + 1).ToString() });
+            };
+            model.Periode = (IEnumerable<System.Web.Mvc.SelectListItem>)periode;
 
             model.Categories = db.AcdfCategories.OrderBy(s => s.CategoryName).Where(s => s.CategoryId == model.CategoryId);
             model.SubCategories = db.AcdfSubCategories.OrderBy(s => s.SubCategoryName).Where(s => s.SubCategoryId == model.SubCategoryId);
@@ -274,8 +338,19 @@ namespace IkoulaACDF.Controllers
                 UserName = Helpers.Utils.GetUserName(),
                 SubCategoryName = db.AcdfSubCategories.Find(acdfPhoto.SubCategoryId).SubCategoryName,
                 SchoolPeriod = acdfPhoto.SchoolPeriod,
-                Date = DateTime.Now
+                Date = DateTime.Now,
+                UserId = User.Identity.GetUserId(),
             };
+            //// Generate Periodes
+            List<System.Web.Mvc.SelectListItem> periode = new List<System.Web.Mvc.SelectListItem>();
+            periode.Add(new System.Web.Mvc.SelectListItem { Value = "0000-0000", Text = "Inconnue" });
+
+            for (int y = 1900; y <= DateTime.Now.Year - 1; y++)
+            {
+                periode.Add(new System.Web.Mvc.SelectListItem { Value = y.ToString() + "-" + (y + 1).ToString(), Text = y.ToString() + "-" + (y + 1).ToString() });
+            };
+            model.Periode = (IEnumerable<System.Web.Mvc.SelectListItem>)periode;
+
             model.Categories = db.AcdfCategories.OrderBy(s => s.CategoryName);
             model.SubCategories = db.AcdfSubCategories.OrderBy(s => s.SubCategoryName).Where(s => s.IsEnable==true);
 
@@ -305,7 +380,8 @@ namespace IkoulaACDF.Controllers
                     UserName = model.UserName,
                     SubCategoryId = model.SubCategoryId,
                     SchoolPeriod = model.SchoolPeriod,
-                    Date = model.Date
+                    Date = model.Date,
+                    UserId = User.Identity.GetUserId(),
                 };
                 // Retreive CategoryName and SubCategoryName for path calculation
                 var categoryName = db.AcdfCategories.Find(model.CategoryId).CategoryName;

@@ -40,14 +40,14 @@
             @foreach (var well in group)
             {
                 <div class="thumbnail">
-                    @{string myTitle = well.Description + " : " + well.Place;}
+                    @{string myTitle = well.SchoolPeriod + " : " + well.Place;}
                     <a class="fancybox" title="@myTitle" href="@well.Path">
                         <img src="@well.ThumbPath" alt="" />
                     </a>
                     <div class="caption">
-                        <h4>@well.Date</h4>
+                        <h4>@well.Date.Value.ToShortDateString()</h4>
                         <p>
-                            @well.SchoolPeriod<br />
+                            @well.SchoolPeriod : @well.Place<br />
                             @well.UserName<br />
                             @well.CategoryName /
                             @if (well.SubCategoryId != 33)

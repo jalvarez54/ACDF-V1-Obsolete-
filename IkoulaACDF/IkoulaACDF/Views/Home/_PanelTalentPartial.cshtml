@@ -1,0 +1,78 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>Les anciens ont du talent</h4>
+    </div>
+    <div class="panel-body">
+        <div class="panel-group" id="accordionL">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img src="~/Medias/Images/LaJarreBrisee.jpg" title="Anne-Marie Michaud-Duhour" alt="Anne-Marie Michaud-Duhour" style="max-width:200px" />
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" title="Month Registrations" data-parent="#accordionL" href="#collapseOneL">
+                           Anne-Marie Michaud-Duhour
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOneL" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("_PanelTalentPartial_Duhour")
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img src="~/Medias/Images/JCBASDEKIS.png" title="Jean-Claude Basdekis" alt="Jean-Claude Basdekis" style="max-width:200px" />
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" title="Month GuessBook" data-parent="#accordionL" href="#collapseTwoL">
+                            Jean-claude BASDEKIS
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwoL" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("_PanelTalentPartial_Basdekis")
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img src="~/Medias/Images/BSauvat.jpg" title="Bernard SAUVAT" alt="Bernard SAUVAT" style="max-width:200px" />
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" title="Month Photos" data-parent="#accordionL" href="#collapseThreeL">
+                            Bernard SAUVAT
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThreeL" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("_PanelTalentPartial_Sauvat")
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img src="~/Medias/Images/V-Mairesse.jpg" title="Valérie Mairesse" alt="Valérie Mairesse" style="max-width:200px" />
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" title="Happy birthday to you !" data-parent="#accordionL" href="#collapseFourL">
+                            Valérie Mairesse
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFourL" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("_PanelTalentPartial_Mairesse")
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="panel-footer">
+        <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+        <ul class="list-inline"><li><a href="#">1 Week Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 4 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li></ul>
+    </div>
+</div>

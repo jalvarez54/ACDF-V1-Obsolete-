@@ -5,14 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5c6e7a869f2245b48afa1309fed51c2c" Name="Diagram1" ZoomLevel="116">
-        <EntityTypeShape EntityType="AcdfModel.AcdfCategory" Width="2.375" PointX="0.5" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcdfModel.AcdfPhoto" Width="2" PointX="8.125" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AcdfModel.AcdfSubCategory" Width="2" PointX="4.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcdfModel.AcdfCategory" Width="2.375" PointX="1.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcdfModel.AcdfPhoto" Width="2" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcdfModel.AcdfSubCategory" Width="2" PointX="5.25" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="AcdfModel.FK_AcdfPhoto_AcdfSubCategory" ManuallyRouted="false" />
         <AssociationConnector Association="AcdfModel.FK_AcdfSubCategory_Category" />
-        <EntityTypeShape EntityType="AcdfModel.AcdfGuessBook" Width="1.5" PointX="5.5" PointY="5.875" />
-        <EntityTypeShape EntityType="AcdfModel.AspNetUser" Width="1.5" PointX="2" PointY="5.375" />
+        <EntityTypeShape EntityType="AcdfModel.AcdfGuessBook" Width="1.875" PointX="4.625" PointY="5.25" />
+        <EntityTypeShape EntityType="AcdfModel.AspNetUser" Width="2.125" PointX="8.75" PointY="5.375" />
         <AssociationConnector Association="AcdfModel.FK_AcdfGuessBook_AspNetUsers" />
+        <AssociationConnector Association="AcdfModel.FK_AcdfPhoto_AspNetUsers" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

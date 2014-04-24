@@ -41,13 +41,14 @@ namespace IkoulaACDF.Controllers
                 var u = new EditUserViewModel(user);
                 model.Add(u);
             }
+            ViewBag.CountMembers = model.Count();
             return View(model);
         }
 
         public ActionResult RestrictedUsersList()
         {
             var Db = new ApplicationDbContext();
-            var users = Db.Users;
+            var users = Db.Users.Where(u => u.ConfirmedEmail == true);
             var model = new List<RestrictedUsersListViewModel>();
             foreach (var user in users)
             {
@@ -344,18 +345,26 @@ namespace IkoulaACDF.Controllers
             ApplicationUser user = this.UserManager.FindById(Token);
             if (user != null)
             {
-                if (user.Email == Email)
+                if (user.ConfirmedEmail == false)
                 {
-                    user.ConfirmedEmail = true;
-                    await UserManager.UpdateAsync(user);
-                    await SignInAsync(user, isPersistent: false);
-                    // Send mail to track
-                    Helpers.Utils.SendMail("", "", user.FirstName, user.LastName, user.Email);
-                    return RedirectToAction("Create", "GuessBook");
+                    if (user.Email == Email)
+                    {
+                        user.ConfirmedEmail = true;
+                        await UserManager.UpdateAsync(user);
+                        await SignInAsync(user, isPersistent: false);
+                        // Send mail to track
+                        Helpers.Utils.SendMail("", "", user.FirstName, user.LastName, user.Email);
+                        return RedirectToAction("Create", "GuessBook");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Confirm", "Account", new { Email = user.Email });
+                    }
+                    
                 }
                 else
                 {
-                    return RedirectToAction("Confirm", "Account", new { Email = user.Email });
+                    return RedirectToAction("Index", "Home", new { Email = user.Email });
                 }
             }
             else

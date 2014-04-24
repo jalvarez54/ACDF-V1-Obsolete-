@@ -36,6 +36,9 @@ namespace IkoulaACDF
                         "~/Scripts/jquery.tablesorter.js",
                         "~/Scripts/jquery.tablesorter.widgets.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/datetimepicker").Include(
+            "~/Scripts/jquery.datetimepicker.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
@@ -51,6 +54,10 @@ namespace IkoulaACDF
             bundles.Add(new ScriptBundle("~/bundles/datepicker").Include(
                       "~/Scripts/bootstrap-datepicker.js",
                       "~/Scripts/locales/bootstrap-datepicker.fr.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
+          "~/Scripts/jquery.inputmask/jquery.inputmask-2.5.0.js",
+          "~/Scripts/jquery.inputmask/jquery.inputmask.date.extensions-2.5.0.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                     "~/Content/bootstrap.css",

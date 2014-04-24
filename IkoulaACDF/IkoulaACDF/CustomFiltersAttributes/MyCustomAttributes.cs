@@ -13,6 +13,20 @@ using System.Globalization;
 
 namespace IkoulaACDF.CustomFiltersAttributes
 {
+    public class DateValidationAttribute : ValidationAttribute
+    {
+        public override bool IsValid(object value)
+        {
+            if (value.ToString() == "01/01/1950" || !(value is DateTime))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
 
     public class DateTestAttribute : ValidationAttribute
     {

@@ -17,6 +17,7 @@
             <hr />
             @Html.HiddenFor(model => model.CategoryId)
             @Html.HiddenFor(model => model.SubCategoryId)
+            @Html.HiddenFor(model => model.UserId)
 
 
             @Html.ValidationSummary(true)
@@ -49,7 +50,8 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.SchoolPeriod, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.SchoolPeriod, new { @class = "form-control" })
+                    @*@Html.TextBoxFor(model => model.SchoolPeriod, new { @class = "form-control" })*@
+                    @Html.DropDownListFor(m => m.SchoolPeriod, new SelectList(Model.Periode, "Value", "Text"), "-- Please select a period --");
                     @Html.ValidationMessageFor(model => model.SchoolPeriod)
                 </div>
             </div>

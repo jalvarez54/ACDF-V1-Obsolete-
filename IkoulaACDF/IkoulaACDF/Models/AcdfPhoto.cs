@@ -24,7 +24,9 @@ namespace IkoulaACDF.Models
         public Nullable<int> SubCategoryId { get; set; }
         public string ThumbPath { get; set; }
         public string Place { get; set; }
+        public string UserId { get; set; }
     
         public virtual AcdfSubCategory AcdfSubCategory { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

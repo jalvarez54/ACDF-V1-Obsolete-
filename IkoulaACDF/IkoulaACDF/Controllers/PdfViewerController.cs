@@ -14,7 +14,14 @@ namespace IkoulaACDF.Controllers
         {
             return View();
         }
-        public ActionResult Viewer(string filePath)
+
+        public ActionResult Viewer_Google(string filePath)
+        {
+            filePath = HttpRuntime.AppDomainAppVirtualPath + "/MyPDFs/" + filePath;
+            ViewBag.filePath = filePath;
+            return View();
+        }
+        public ActionResult Viewer_PdfJs(string filePath)
         {
             //build the file path here
             //filePath = "/ACDF/MyPDFs/" + filePath;

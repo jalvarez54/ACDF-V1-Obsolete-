@@ -1,12 +1,12 @@
 ﻿@*BirthDays with model*@
 @model IkoulaACDF.Models.HomePageViewModel
 
-@foreach (var item in Model.BirthDays)
+@foreach (var item in Model.BirthDaysMonth)
 {
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <img src="@item.Key.PhotoUrl" title="@item.Key.FirstName @item.Key.LastName" alt="@item.Key.UserName" width="25" height="25" />
+            <img src="@item.Key.PhotoUrl" title="@item.Key.FirstName @item.Key.LastName" alt="@item.Key.UserName" width="25" />
         </div>
         <div class="panel-body">
             <b>@item.Key.FirstName @item.Key.LastName</b> (@item.Value years old)  <br />

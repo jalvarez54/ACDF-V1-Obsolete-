@@ -1,12 +1,24 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta name="Robots" content="all">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personnal web site">
-    <meta name="author" content="José ALVAREZ">
-    <meta name="keywords" content="jose,alvarez,personnel,asp.net,mvc,anciens,charles,foucauld,csablanca,maroc" />
+    <meta name="content-Language" content="fr">
+    <meta name="description" content="Site des anciens de Charles de Foucauld CASABLANCA MAROC">
+    <meta name="keywords" content="ecole,charles,foucauld,anciens,casablanca,maroc,casa,casablanca,foot,hand,jose,alvarez,personnel,asp.net,mvc">
+    <meta name="subject" content="Association anciens eleves">
+    <meta name="copyright" content="ACDF">
+    <meta name="author" content="Jose ALVAREZ">
+    <meta name="publisher" content="ACDF - Jose ALVAREZ">
+    <meta name="identifier-Url" content="http://www.jow-alva.net/ACDF">
+    <meta name="reply-To" content="foucauld.casa@free.fr">
+    <meta name="revisit-After" content="1 day">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="geography" content="Nancy,France,54000">
+    <meta name="category" content="internet">
     <!-- Adding a RenderSection here, mark it as not required-->
     @RenderSection("AdditionalMeta", false)
     <title>@ViewBag.Title - ACDF</title>
@@ -66,7 +78,9 @@
                             <li class="divider"></li>
                             @if (User.IsInRole("Admin"))
                             {
-                                <li>@Html.ActionLink("Management", "Index", "Account")</li>
+                                <li>@Html.ActionLink("Manage users", "Index", "Account")</li>
+                                <li>@Html.ActionLink("Manage photo category", "Index", "Category")</li>
+                                <li>@Html.ActionLink("Manage photo subcategory", "Index", "SubCategory")</li>
                             }
                         </ul>
 
@@ -105,27 +119,28 @@
                             <li class="divider"></li>
                             <li class="nav-header"><i class="fa fa-video-camera"></i> Videos</li>
                             <li>@Html.ActionLink("Videos", "Index", "Video")</li>
+                            <li><a href="http://www.dailymotion.com/group/ACDF" target="_blank">ACDF sur DailyMotion <i class="fa fa-external-link"></i></a></li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-file-text fa-fw"></i> Documents<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="nav-header"><i class="fa fa-files-o"></i> Documents PDF</li>
-                            <li>@Html.ActionLink("Divers", "Index", "PdfViewer")</li>
-                            <li class="nav-header"><i class="fa fa-file-text"></i> Archives</li>
                             <li>@Html.ActionLink("Logos Tramp", "Tramp", "Home")</li>
                             <li>@Html.ActionLink("Anecdotes", "Anecdotes", "Home")</li>
+                            <li class="nav-header"><i class="fa fa-files-o"></i> Documents PDF-DOC-PPT</li>
+                            <li>@Html.ActionLink("Divers", "Index", "PdfViewer")</li>
+                            <li class="nav-header"><i class="fa fa-file-text"></i> Archives</li>
                             <li>@Html.ActionLink("Archives", "Archives", "Home")</li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Rencontres<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Réseau<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li class="nav-header"><i class="fa fa-users"></i> Livre d'or</li>
                             <li>
-                                <a href="@Url.Action("Index", "GuessBook")"><span>Livre d'or</span><span class="badge pull-right">@IkoulaACDF.Helpers.Utils.GetCountGuessBooks(this.Context)</span></a>
+                                <a href="@Url.Action("Index", "GuessBook")"><span>Livre d'or</span><span class="badge pull-right">@IkoulaACDF.Helpers.Utils.GetGlobalValue(this.Context, "CountAcdfGuessBooks")</span></a>
                             </li>
                             <li class="nav-header"><i class="fa fa-users"></i> Rencontres</li>
                             <li>@Html.ActionLink("Rencontres", "Todo", "Home")</li>
@@ -133,14 +148,17 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="@Url.Action("Create", "GuessBook")"><span><i class="fa fa-sign-in"></i> Signer le livre d'or</span></a>
+                        <a href="@Url.Action("Create", "GuessBook")"><span><i class="fa fa-sign-in"></i> Signer le livre d'or</span><span class="badge pull-right">@IkoulaACDF.Helpers.Utils.GetGlobalValue(this.Context, "CountAcdfGuessBooks")</span></a>
                     </li>
                     <li>
-                        <a href="@Url.Action("RestrictedUsersList", "Account")"><i class="fa fa-list"></i> <span>List des membres</span><span class="badge pull-right">@IkoulaACDF.Helpers.Utils.GetCountMembers(this.Context)</span></a>
+                        <a href="@Url.Action("RestrictedUsersList", "Account")"><i class="fa fa-list"></i> <span>Liste des membres</span><span class="badge pull-right">@IkoulaACDF.Helpers.Utils.GetGlobalValue(this.Context, "CountAspNetUsers")</span></a>
                     </li>
                     <li class="divider"></li>
                     <li>
                         <a href="https://acdfcasa.codeplex.com/" target="_blank"><i class="fa fa-code"></i> <span>Source code on CodePlex</span> <i class="fa fa-external-link"></i></a>
+                    </li>
+                    <li>
+                        <a href="~/AcdfHistory.txt" target="_blank"><i class="fa fa-code"></i> <span>Changeset</span> <i class="fa fa-external-link"></i></a>
                     </li>
                 </ul>
                 <!-- /#side-menu -->

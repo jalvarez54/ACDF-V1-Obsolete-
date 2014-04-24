@@ -1,16 +1,25 @@
 ﻿@model IkoulaACDF.Models.EditUserViewModel
 
 @section Scripts {
-    @Scripts.Render("~/bundles/datepicker")
+    @*@Scripts.Render("~/bundles/datetimepicker")*@
+    @Scripts.Render("~/bundles/inputmask")
     @Scripts.Render("~/bundles/jqueryval")
+
+
+    @*<script>
+           $(document).ready(function () {
+               $(".date-picker").datepicker({
+                   language: "@System.Globalization.CultureInfo.CurrentUICulture.Name",
+               });
+           });
+    </script>}*@
 
     <script>
         $(document).ready(function () {
-            $(".date-picker").datepicker({
-                language: "@System.Globalization.CultureInfo.CurrentUICulture.Name",
-            });
+            $("#BirthDate").inputmask("d/m/y", { "placeholder": "dd/mm/yyyy" });
         });
     </script>
+
 }
 
 @{
@@ -25,7 +34,7 @@
 {
     <div class="form-horizontal">
             @Html.AntiForgeryToken()
-            <hr />
+        <div class="container">
             @Html.ValidationSummary(true)
 
             <div class="form-group">
@@ -65,7 +74,9 @@
                 <div class="col-md-10">
                     @*@Html.TextBoxFor(model => model.BirthDate, new { @class = "form-control" })*@
                     @*@Html.TextBoxFor(model => model.BirthDate, new { @class = "form-control date-picker", value = Model.BirthDate.ToString("dd-mm-yyyy") })*@
-                    @Html.EditorFor(model => model.BirthDate)
+                    @*@Html.EditorFor(model => model.BirthDate)*@
+                    @Html.TextBoxFor(model => model.BirthDate, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BirthDate)
                 </div>
             </div>
             <div class="form-group">
@@ -120,38 +131,38 @@
             @* if user don't have photo don't propose to remove it*@
             @if (!(Model.PhotoUrl.Contains("BlankPhoto.jpg")))
             {
-            <div class="form-group">
-                @Html.LabelFor(model => model.IsNoPhotoChecked, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.CheckBoxFor(model => model.IsNoPhotoChecked)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsNoPhotoChecked, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(model => model.IsNoPhotoChecked)
+                    </div>
                 </div>
-            </div>
             }
             @*TODO: For now admin cannot reset user password, he can only change his password.*@
-            @*So we hide this to admin or dev as admin, when editing a user*@
-            @if (User.Identity.Name == Model.UserName)
+                @*So we hide this to admin or dev as admin, when editing a user*@
+                @if (User.Identity.Name == Model.UserName)
                 {
-            <div class="form-group">
-                @Html.Label("Mot de passe", new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.ActionLink("Changer votre mot de passe", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Administrer mot de passe" })
-                </div>
-            </div>
+                    <div class="form-group">
+                        @Html.Label("Mot de passe", new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.ActionLink("Changer votre mot de passe", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Administrer mot de passe" })
+                        </div>
+                    </div>
                 }
-        <div class="form-group">
-            @Html.LabelFor(model => model.RegistrationDate, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.RegistrationDate, new { @class = "form-control", @readonly = "readonly" })
-            </div>
-        </div>
-                
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RegistrationDate, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.RegistrationDate, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
                 </div>
             </div>
-
-    </div>
+            </div>
 }
 <div>
     <span class="btn btn-default">@Html.ActionLink("Back to List", "Index")</span>

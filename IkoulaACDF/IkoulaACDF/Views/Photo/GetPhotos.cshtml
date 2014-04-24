@@ -52,12 +52,12 @@
                     curSlide = slider.slides[slider.currentSlide];
                     var b = $(curSlide).find('p.toshow').text();
                     //alert(b);
-                    $('div.panel-body').text(b);
+                    $('div.tofill').text(b);
                 },
                 start: function (slider) {
                     curSlide = slider.slides[slider.currentSlide];
                     var b = $(curSlide).find('p.toshow').text();
-                    $('div.panel-body').text(b);
+                    $('div.tofill').text(b);
                 }
             });
             $('#loading').hide();
@@ -114,29 +114,36 @@ else
 
 <!-- container -->
 <div class="container">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="flex-container flex-viewport">
-                <div id="slider" class="flexslider">
-                    <div id="loading" style="text-align:center"><img src="~/Content/fancybox/fancybox_loading.gif" /></div>
-                    <ul class="slides">
-                        @foreach (var item in Model)
-                        {
-                            <li>
 
-                                @{string myTitle = item.Description + " : " + item.Place;}
-                                <a class="fancybox" title="@myTitle" href="@item.Path"><img src="@item.Path" /></a>
-                                <p class="flex-caption"> @item.Place</p>
-                                <p hidden class="toshow">@item.Description</p>
-                                <div class="btn-group-justified hidden-xs hidden-sm" style="padding:5px; border:1px solid; border-color:#f8f8f8">
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.PhotoId }, new { type = "button", @class = "btn btn-xs btn-primary" })
-                                    @Html.ActionLink("Details", "Details", new { id = item.PhotoId }, new { type = "button", @class = "btn btn-xs" })
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.PhotoId }, new { type = "button", @class = "btn btn-xs btn-danger" })
-                                </div>
-                            </li>
-                        }
-                    </ul>
+    <div class="row">
+        <div class="col-lg-6 col-sm-6">
+            <div class="well well-sm">
+                <h6>Sélectionnez une période: [ <em>0000-0000 = non classées</em> ]</h6>
+                @foreach (var item in ViewBag.Periodes)
+                {
+                    string[] v = Request.Url.AbsoluteUri.Split('&');
+                    string val = v[0] + "&" + v[1] + "&periode=" + item;
+                    <a href=@val>@item</a>  ;
+                }
+            </div>
+            @*<div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3>Category: @Html.DisplayFor(model => model.First().CategoryName)</h3>
                 </div>
+                <div class="panel-body">
+                    <p></p>
+                </div>
+                <div class="panel-footer">
+                    <p class="essai">Subcategory: @Html.DisplayFor(model => model.First().SubCategoryName)</p>
+                </div>
+            </div>*@
+
+            <div class="tofill well well-sm">
+                <div id="loading" style="text-align:center"><img src="~/Content/fancybox/fancybox_loading.gif" /></div>
+                <p></p>
+            </div>
+
+            <div class="flex-container flex-viewport">
                 <div id="carousel" class="flexslider">
                     <ul class="slides">
                         @foreach (var item in Model)
@@ -148,24 +155,33 @@ else
                         }
                     </ul>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-lg-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3>Category: @Html.DisplayFor(model => model.First().CategoryName)</h3>
-                </div>
-                <div class="panel-body">
-                    <p></p>
-                </div>
-                <div class="panel-footer">
-                    <p class="essai">Subcategory: @Html.DisplayFor(model => model.First().SubCategoryName)</p>
+                <div id="slider" class="flexslider">
+                    @*<div id="loading" style="text-align:center"><img src="~/Content/fancybox/fancybox_loading.gif" /></div>*@
+                    <ul class="slides">
+                        @foreach (var item in Model)
+                        {
+                        <li>
+
+                            @{string myTitle = item.SchoolPeriod + " : " + item.Place;}
+                            <a class="fancybox" title="@myTitle" href="@item.Path"><img src="@item.Path" /></a>
+                            <p class="flex-caption"> @myTitle</p>
+                            <p hidden class="toshow">@item.Description</p>
+                            <div class="btn-group-justified hidden-xs hidden-sm" style="padding:5px; border:1px solid; border-color:#f8f8f8">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.PhotoId }, new { type = "button", @class = "btn btn-xs btn-primary" })
+                                @Html.ActionLink("Details", "Details", new { id = item.PhotoId }, new { type = "button", @class = "btn btn-xs" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.PhotoId }, new { type = "button", @class = "btn btn-xs btn-danger" })
+                            </div>
+                        </li>
+                        }
+                    </ul>
                 </div>
             </div>
+
         </div>
     </div>
 </div><!-- container -->
+
 @*<div id="rg-gallery" class="rg-gallery">
         <div class="rg-thumbs">
             <!-- Elastislide Carousel Thumbnail Viewer -->

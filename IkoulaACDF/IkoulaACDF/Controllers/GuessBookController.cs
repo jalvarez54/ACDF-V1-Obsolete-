@@ -56,9 +56,13 @@ namespace IkoulaACDF.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.AcdfGuessBooks.Add(acdfguessbook);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                // save only if not empty
+                if (acdfguessbook.Message != string.Empty)
+                {
+                    db.AcdfGuessBooks.Add(acdfguessbook);
+                    db.SaveChanges();
+                    
+                } return RedirectToAction("Index");
             }
 
             ViewBag.UserId = acdfguessbook.UserId;

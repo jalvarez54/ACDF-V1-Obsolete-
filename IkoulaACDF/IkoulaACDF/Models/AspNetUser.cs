@@ -17,6 +17,7 @@ namespace IkoulaACDF.Models
         public AspNetUser()
         {
             this.AcdfGuessBooks = new HashSet<AcdfGuessBook>();
+            this.AcdfPhotoes = new HashSet<AcdfPhoto>();
         }
     
         public string Id { get; set; }
@@ -35,7 +36,9 @@ namespace IkoulaACDF.Models
         public string PhotoUrl { get; set; }
         public string Discriminator { get; set; }
         public Nullable<System.DateTime> RegistrationDate { get; set; }
+        public Nullable<bool> ConfirmedEmail { get; set; }
     
         public virtual ICollection<AcdfGuessBook> AcdfGuessBooks { get; set; }
+        public virtual ICollection<AcdfPhoto> AcdfPhotoes { get; set; }
     }
 }

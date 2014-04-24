@@ -25,6 +25,7 @@ namespace IkoulaACDF.Models
     }
     public class PhotoViewModel
     {
+        public string UserId { get; set; }
         public int PhotoId { get; set; }
         public Nullable<int> CategoryId { get; set; }
         public IEnumerable<Models.AcdfCategory> Categories { get; set; }
@@ -32,7 +33,7 @@ namespace IkoulaACDF.Models
         public IEnumerable<Models.AcdfSubCategory> SubCategories { get; set; }
         [Display(Name = "Description")]
         public string Description { get; set; }
-        [Display(Name = "Place")]
+        [Display(Name = "Classe/Place")]
         public string Place { get; set; }
         [Display(Name = "User")]
         public string UserName { get; set; }
@@ -49,9 +50,24 @@ namespace IkoulaACDF.Models
         [Display(Name = "Photo")]
         public string Path { get; set; }
         public string ThumbPath { get; set; }
+        public IEnumerable<string> Periodes { get; set; }
+
     }
     public class PhotoEditViewModel
     {
+        public PhotoEditViewModel()
+        {
+            //// Generate Periodes
+            List<System.Web.Mvc.SelectListItem> periode = new List<System.Web.Mvc.SelectListItem>();
+            periode.Add(new System.Web.Mvc.SelectListItem { Value = "0000-0000", Text = "Inconnue" });
+
+            for (int y = 1900; y <= DateTime.Now.Year - 1; y++)
+            {
+                periode.Add(new System.Web.Mvc.SelectListItem { Value = y.ToString() + "-" + (y + 1).ToString(), Text = y.ToString() + "-" + (y + 1).ToString() });
+            };
+            this.Periode = (IEnumerable<System.Web.Mvc.SelectListItem>)periode;
+        }
+        public string UserId { get; set; }
         public int PhotoId { get; set; }
         [Required]
         public Nullable<int> CategoryId { get; set; }
@@ -63,7 +79,7 @@ namespace IkoulaACDF.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
         [Required]
-        [Display(Name = "Place")]
+        [Display(Name = "Classe/Place")]
         public string Place { get; set; }
         [Display(Name = "User")]
         public string UserName { get; set; }
@@ -81,10 +97,25 @@ namespace IkoulaACDF.Models
         [Display(Name = "Photo")]
         public string Path { get; set; }
         public string ThumbPath { get; set; }
+        public IEnumerable<System.Web.Mvc.SelectListItem> Periode { get; set; }
     }
 
     public class PhotoCreateViewModel
     {
+        public PhotoCreateViewModel()
+        {
+            //// Generate Periodes
+            List<System.Web.Mvc.SelectListItem> periode = new List<System.Web.Mvc.SelectListItem>();
+            periode.Add(new System.Web.Mvc.SelectListItem { Value = "0000-0000", Text = "Inconnue" });
+
+            for (int y = 1900; y <= DateTime.Now.Year - 1; y++)
+            {
+                periode.Add(new System.Web.Mvc.SelectListItem { Value = y.ToString() + "-" + (y + 1).ToString(), Text = y.ToString() + "-" + (y + 1).ToString() });
+            };
+            this.Periode = (IEnumerable<System.Web.Mvc.SelectListItem>)periode;
+        }
+
+        public string UserId { get; set; }
         public int PhotoId { get; set; }
         [Required]
         public Nullable<int> CategoryId { get; set; }
@@ -96,7 +127,7 @@ namespace IkoulaACDF.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
         [Required]
-        [Display(Name = "Where")]
+        [Display(Name = "Classe/Place")]
         public string Place { get; set; }
         [Display(Name = "User")]
         public string UserName { get; set; }
@@ -116,6 +147,8 @@ namespace IkoulaACDF.Models
         public string ThumbPath { get; set; }
         [Required]
         public HttpPostedFileWrapper Photo { get; set; }
+        public IEnumerable<System.Web.Mvc.SelectListItem> Periode { get; set; }
+
     }
 
 }

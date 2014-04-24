@@ -1,0 +1,79 @@
+﻿@model IkoulaACDF.Models.HomePageViewModel
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>Nouveau en @DateTime.Now.ToString("MMMM").ToUpperInvariant()</h4>
+    </div>
+    <div class="panel-body">
+        <div class="panel-group" id="accordionR">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" title="Month Registrations" data-parent="#accordionL" href="#collapseOneR">
+                            @DateTime.Now.ToString("MMMM").ToUpperInvariant() registrations<span class="badge pull-right">@Model.AspNetUsersMonth.Count()</span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOneR" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("_HomeAspNetUserMonthPartial")
+                        <p><a class="btn btn-default" href="#">See more &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" title="Month GuessBook" data-parent="#accordionL" href="#collapseTwoR">
+                            @DateTime.Now.ToString("MMMM").ToUpperInvariant() guessBooks<span class="badge pull-right">@Model.GuessBooksMonth.Count()</span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwoR" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("_HomeGuessBookMonthPartial")
+                        <p><a class="btn btn-default" href="~/GuessBook">See more &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" title="Month Photos" data-parent="#accordionL" href="#collapseThreeR">
+                            @DateTime.Now.ToString("MMMM").ToUpperInvariant() photos<span class="badge pull-right">@Model.PhotosMonth.Count()</span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThreeR" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("_HomePhotoMonthPartial")
+                        <p><a class="btn btn-default" href="~/Photo/RecentPhoto">See more &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" title="Happy birthday to you !" data-parent="#accordionL" href="#collapseFourR">
+                            @DateTime.Now.ToString("MMMM").ToUpperInvariant() birthdays<span class="badge pull-right">@Model.BirthDaysMonth.Count()</span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFourR" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("_HomeBirthDayPartial")
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="panel-footer">
+        <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+        <ul class="list-inline"><li><a href="#">1 Week Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 4 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li></ul>
+    </div>
+</div>
