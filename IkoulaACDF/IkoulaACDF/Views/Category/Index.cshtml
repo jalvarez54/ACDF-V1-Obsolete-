@@ -6,9 +6,10 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="btn-group">
+    <span class="btn btn-default navbar-btn">@Html.ActionLink("Create New Category", "Create")</span>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -20,7 +21,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
+            @Html.ActionLink("Add new photo in " + Html.DisplayFor(modelItem => item.CategoryName), "CreateNew", "Photo", new { catId = Html.DisplayFor(modelItem => item.CategoryId) }, null)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CategoryId }) |

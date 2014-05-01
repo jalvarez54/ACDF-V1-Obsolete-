@@ -148,4 +148,12 @@ Version 06 = V0.0.0.6 {0.6.Alpha}
 * TODO: Slider filter ==> ADD periode in GetPhoto
 * BUG Edit account dont display errors
 * ADD: Dropdownlist for period
+====================================
+Version 07 = V0.0.0.7 {0.7.Alpha}
+====================================
 * TODO: Messagerie
+* BUG: With empty database dont progress to GetPhotos
+* TODO: Review Photo Database Schema
+* ADD: Folder photos creation
+* TODO: return on subCategory AUCUNE = 33
+* TODO: CreateNew

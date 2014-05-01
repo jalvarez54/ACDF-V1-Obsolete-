@@ -14,6 +14,33 @@ namespace IkoulaACDF.Helpers
     public class Utils
     {
 
+        public static void MakeCategoryFolder(string category, IkoulaACDF.Controllers.CategoryController controller)
+        {
+            if (category != string.Empty)
+            {
+                var folder = controller.Server.MapPath("~/Medias/_Photos/" + category);
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
+            }
+
+        }
+        public static void MakeSubCategoryFolder(string category, string subCategory, IkoulaACDF.Controllers.SubCategoryController controller)
+        {
+            if (category != string.Empty)
+            {
+                if(subCategory != string.Empty)
+                {
+                var folder = controller.Server.MapPath("~/Medias/_Photos/" + category + "/" + subCategory);
+                    if (!Directory.Exists(folder))
+                    {
+                        Directory.CreateDirectory(folder);
+                    }
+                }
+            }
+
+        }
         public static string GetGlobalValue(HttpContextBase cela, string key)
         {
             try

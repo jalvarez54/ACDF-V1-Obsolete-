@@ -99,7 +99,6 @@ namespace IkoulaACDF.Models
         public string ThumbPath { get; set; }
         public IEnumerable<System.Web.Mvc.SelectListItem> Periode { get; set; }
     }
-
     public class PhotoCreateViewModel
     {
         public PhotoCreateViewModel()

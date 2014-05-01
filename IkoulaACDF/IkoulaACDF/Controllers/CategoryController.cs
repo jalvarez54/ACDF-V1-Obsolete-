@@ -50,6 +50,7 @@ namespace IkoulaACDF.Controllers
         {
             if (ModelState.IsValid)
             {
+                Helpers.Utils.MakeCategoryFolder(acdfcategory.CategoryName,this);
                 db.AcdfCategories.Add(acdfcategory);
                 db.SaveChanges();
                 return RedirectToAction("Index");

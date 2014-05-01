@@ -227,6 +227,6 @@
 /// <reference path="../obj/release/package/packagetmp/scripts/locales/bootstrap-datepicker.ua.js" />
 /// <reference path="../obj/release/package/packagetmp/scripts/locales/bootstrap-datepicker.vi.js" />
 /// <reference path="../obj/release/package/packagetmp/scripts/locales/bootstrap-datepicker.zh-cn.js" />
-/// <reference path="jquery.tmpl.js" />
 /// <reference path="../obj/release/package/packagetmp/scripts/locales/bootstrap-datepicker.zh-tw.js" />
+/// <reference path="jquery.tmpl.js" />
 /// <reference path="../obj/release/package/packagetmp/scripts/jquery.tmpl.js" />

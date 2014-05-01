@@ -226,6 +226,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CascadingDropDownController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\GuessBookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -296,10 +297,6 @@
   <ItemGroup>
     <Content Include="..\AcdfHistory.txt">
       <Link>AcdfHistory.txt</Link>
-    </Content>
-    <Content Include="App_Data\ACDF.mdf" />
-    <Content Include="App_Data\ACDF_log.ldf">
-      <DependentUpon>ACDF.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker3.css" />
@@ -532,9 +529,13 @@
     <Content Include="MyPDFs\Palmares1968.pdf" />
     <Content Include="MyPDFs\Tramp1972.pdf" />
     <Content Include="MyPDFs\Tramp2004.pdf" />
+    <Content Include="Views\Photo\NoPhoto.cshtml" />
+    <Content Include="Views\Photo\CreateNew.cshtml" />
     <None Include="Views\Shared\Articles\Anecdote-11.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Home\Todo.cshtml" />
     <Content Include="Views\Account\Confirm.cshtml" />
     <Content Include="Views\Shared\_NewsPartial.cshtml" />
@@ -738,6 +739,7 @@
     <Content Include="Views\Account\RestrictedUsersList.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Medias\_Photos\Batiments\" />
     <Folder Include="Medias\_Photos\Classes\" />
     <Folder Include="Medias\_Photos\Communions\" />
@@ -748,6 +750,7 @@
     <Folder Include="Medias\_Photos\Profs\" />
     <Folder Include="Medias\_Photos\SchoolLive\" />
     <Folder Include="Medias\_Videos\" />
+    <Folder Include="Views\CascadingDropDown\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

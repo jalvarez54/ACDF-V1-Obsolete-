@@ -18,6 +18,6 @@ using System.Runtime.InteropServices;
 //
 // Vous pouvez spécifier toutes les valeurs ou vous pouvez définir par défaut les valeurs Révision et Numéro de version
 // en utilisant ’*’, comme indiqué ci-dessous :
-[assembly: AssemblyInformationalVersion("0.6.Alpha")]
-[assembly: AssemblyVersion("0.0.0.6")]
+[assembly: AssemblyInformationalVersion("0.7.Alpha")]
+[assembly: AssemblyVersion("0.0.0.7")]
 //[assembly: AssemblyFileVersion("1.0.0.0")]

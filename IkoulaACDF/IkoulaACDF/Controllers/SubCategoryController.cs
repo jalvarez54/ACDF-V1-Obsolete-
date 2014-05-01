@@ -52,6 +52,8 @@ namespace IkoulaACDF.Controllers
         {
             if (ModelState.IsValid)
             {
+                string catName = db.AcdfCategories.Find(acdfsubcategory.CategoryId).CategoryName;
+                Helpers.Utils.MakeSubCategoryFolder(catName, acdfsubcategory.SubCategoryName, this);
                 db.AcdfSubCategories.Add(acdfsubcategory);
                 db.SaveChanges();
                 return RedirectToAction("Index");

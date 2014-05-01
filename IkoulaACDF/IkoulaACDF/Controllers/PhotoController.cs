@@ -152,7 +152,8 @@ namespace IkoulaACDF.Controllers
                         // * BUG: Exception in http://www.jow-alva.net/ACDF/Photo/GetPhotos?categoryID=16&subCategoryID=50 no element
                         if (ViewBag.Count == 0)
                         {
-                            return RedirectToAction("Category", "Photo", null);
+                            //return RedirectToAction("Create", "Photo", new { catId = categoryId, subCatId = subCategoryId });
+                            return RedirectToAction("Index", "Photo");
                         }
 
                         return View(photos.ToList());
@@ -185,7 +186,8 @@ namespace IkoulaACDF.Controllers
                 // * BUG: Exception in http://www.jow-alva.net/ACDF/Photo/GetPhotos?categoryID=16&subCategoryID=50 no element
                 if (ViewBag.Count == 0)
                 {
-                    return RedirectToAction("Category", "Photo", null);
+                    //return RedirectToAction("Create", "Photo", new { catId = categoryId, subCatId = subCategoryId });
+                    return RedirectToAction("Index", "Photo");
                 }
 
                 return View(photos.ToList());
