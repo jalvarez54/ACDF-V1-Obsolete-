@@ -1,0 +1,21 @@
+﻿@model IkoulaACDF.Models.HomePageViewModel
+<a name="recentphoto" />
+@foreach (var item in @Model.LastFivePhotos)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @{string myTitle = item.SchoolPeriod + " : " + item.Place;}
+            <a class="fancybox" title="@myTitle" href="@item.Path">
+                <img src="@item.ThumbPath" alt="" />
+            </a>
+        </div>
+        <div class="panel-body">
+            <p>@item.Description</p>
+        </div>
+
+        <div class="panel-footer">
+            <h4>@item.UserName</h4>
+            <p>@item.Date.Value.ToShortDateString()</p>
+        </div>
+    </div>
+}

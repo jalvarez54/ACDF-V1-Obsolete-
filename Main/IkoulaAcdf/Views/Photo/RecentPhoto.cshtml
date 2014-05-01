@@ -1,0 +1,74 @@
+﻿@model IEnumerable<IkoulaACDF.Models.PhotoViewModel>
+
+@section scripts {
+    @Scripts.Render("~/bundles/fancybox")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                helpers: {
+                    title: {
+                        type: 'float',
+                    },
+                },
+                openEffect: 'none',
+                closeEffect: 'elastic',
+                nextEffect: 'fade',
+                prevEffect: 'fade',
+            })
+        });
+    </script>
+
+    <script type="text/javascript">
+        $('#myModal').modal('show');
+    </script>
+}
+
+@{
+    ViewBag.Title = "Recent Photos";
+}
+
+<h2>@ViewBag.Title (added or modified) last five</h2>
+
+@Html.Partial("_RecentPhotoPartial")
+
+<!-- container -->
+<div class="container">
+    @foreach (var group in Model.Select((x, index) => new { element = x, index }).GroupBy(x => x.index / 3, x => x.element))
+    {
+        <div class="col-sm-6 col-md-4">
+            @foreach (var well in group)
+            {
+                <div class="thumbnail">
+                    @{string myTitle = well.SchoolPeriod + " : " + well.Place;}
+                    <a class="fancybox" title="@myTitle" href="@well.Path">
+                        <img src="@well.ThumbPath" alt="" />
+                    </a>
+                    <div class="caption">
+                        <h4>@well.Date.Value.ToShortDateString()</h4>
+                        <p>
+                            @well.SchoolPeriod : @well.Place<br />
+                            @well.UserName<br />
+                            @well.CategoryName /
+                            @if (well.SubCategoryId != 33)
+                            {
+                                @well.SubCategoryName
+                            }
+                            <div class="btn-group-xs hidden-xs hidden-sm btn-group-justified">
+                                @Html.ActionLink("Edit", "Edit", new { id = well.PhotoId }, new { type = "button", @class = "btn btn-xs btn-primary" })
+                                @Html.ActionLink("Details", "Details", new { id = well.PhotoId }, new { type = "button", @class = "btn btn-xs" })
+                                @Html.ActionLink("Delete", "Delete", new { id = well.PhotoId }, new { type = "button", @class = "btn btn-xs btn-danger" })
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+</div><!-- container -->
+
+
+
+
+

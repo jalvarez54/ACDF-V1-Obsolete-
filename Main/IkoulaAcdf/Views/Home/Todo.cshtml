@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "UnderConstruction";
+}
+<h2>@ViewBag.Title.</h2>
+
+<!-- container -->
+<div class="container">
+
+    <!--  main row -->
+    <div class="row">
+
+        <!-- left col -->
+        <div class="col-lg-4 col-sm-12">
+            <div>
+                <p>Be patient !</p>
+                <p>this page is currently under construction.</p>
+            </div>
+        </div><!-- left col -->
+        <!-- center col -->
+        <div class="col-lg-4 col-sm-12">
+        </div><!-- center col -->
+        <!-- right col -->
+        <div class="col-lg-4 col-sm-12">
+            @Html.Partial("_NewsPartial")
+        </div><!-- right col -->
+
+    </div><!-- main row -->
+
+</div><!-- container -->

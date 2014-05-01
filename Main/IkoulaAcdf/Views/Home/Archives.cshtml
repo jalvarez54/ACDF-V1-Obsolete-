@@ -1,0 +1,158 @@
+﻿@model IEnumerable<IkoulaACDF.Models.PhotoViewModel>
+
+@section scripts {
+    @Scripts.Render("~/bundles/fancybox")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                helpers: {
+                    title: {
+                        type: 'float',
+                    },
+                },
+                openEffect: 'none',
+                closeEffect: 'elastic',
+                nextEffect: 'fade',
+                prevEffect: 'fade',
+            })
+        });
+    </script>
+
+    <script type="text/javascript">
+        $('#myModal').modal('show');
+    </script>
+}
+
+
+
+
+@{
+    ViewBag.Title = "Archives";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!-- container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="thumbnail">
+                <div class="caption">
+                    <a class="fancybox" title="Abbé Salla 1956" href="~/Archives/Salla/Salla_6.jpg">
+                        <img src="~/Archives/Salla/Salla_6_small.jpg" />
+                    </a>
+                    <h4>Père Salla</h4>
+                    <p>
+                        Voici la coupure de presse du Petit Marocain relatant la partie de pelote Basque avec l'abbé Salla.
+                    </p>
+                    <p class="badge">PB SALLA</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="thumbnail">
+                <img title="Benchekroun Fouad" src="~/Archives/FouadBenchekroun/thumb_Scan10337Web.JPG" />
+                <div class="caption">
+                    <h4>Benchekroun Fouad</h4>
+                    <p>
+                        Un ancien de Charles de Foucauld Benchekroun Fouad, psychiatre et psychanalyste à Rabat passé sur le Gril pour la revue Citadine. Il se plie au jeu des questions réponses pour nous éclairer sur la notion de féminin et l'évolution de la femme marocaine.
+                    </p>
+                    <p>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a class="fancybox" title="Scan10338" href="~/Archives/FouadBenchekroun/Scan10338.JPG">
+                                    <img src="~/Archives/FouadBenchekroun/thumb_Scan10338.JPG" />
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+
+                                <a class="fancybox" title="Scan10339" href="~/Archives/FouadBenchekroun/Scan10339.JPG">
+                                    <img src="~/Archives/FouadBenchekroun/thumb_Scan10339.JPG" />
+                                </a>
+                            </div>
+                        </div>
+                    </p>
+                    <p class="badge">Y. ANTONIOU</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="thumbnail">
+            <img title="Ya b'slâmaâa! Mimi l'arbi" src="~/Archives/Yallaho/yallaho01_small.jpg" />
+            <div class="caption">
+                <h4>Manuel d'Arabe dialectal marocain</h4>
+                <p>
+                    En grattant les miennes dans le placard Ali Babi, j'ai retrouvé mon premier manuel d'Arabe dialectal marocain...
+                    Je vous en scanné l'intro, la méthode phonétique et les 2 premières leçons pour vous en donner un aperçu sommaire, pas trop lourd à télécharger.
+                    Pensez-vous que cela puisse intéresser qui que ce soit?
+                    Si oui je le scanne avec une meilleure quâtiti... et j'envoie le CD-Rom à notre webmaster?
+                    Je vois déjà les exercices d'application de la première leçon:
+                    "Fifi huwwa would mezyan" "Kiki hiyya bent zouina" "chkoun li ændou lijnou cagnou?"
+                </p>
+                <p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <a class="fancybox" title="Yallaho01" href="~/Archives/Yallaho/yallaho01.jpg">
+                                <img src="~/Archives/Yallaho/yallaho01_small.jpg" />
+                            </a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a class="fancybox" title="Yallaho02" href="~/Archives/Yallaho/yallaho02.jpg">
+                                <img src="~/Archives/Yallaho/yallaho02_small.jpg" />
+                            </a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a class="fancybox" title="Yallaho03" href="~/Archives/Yallaho/yallaho03.jpg">
+                                <img src="~/Archives/Yallaho/yallaho03_small.jpg" />
+                            </a>
+                        </div>
+                    </div>
+                </p>
+                <p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <a class="fancybox" title="Yallaho04" href="~/Archives/Yallaho/yallaho04.jpg">
+                                <img src="~/Archives/Yallaho/yallaho04_small.jpg" />
+                            </a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a class="fancybox" title="Yallaho05" href="~/Archives/Yallaho/yallaho05.jpg">
+                                <img src="~/Archives/Yallaho/yallaho05_small.jpg" />
+                            </a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a class="fancybox" title="Yallaho06" href="~/Archives/Yallaho/yallaho06.jpg">
+                                <img src="~/Archives/Yallaho/yallaho06_small.jpg" />
+                            </a>
+                        </div>
+                    </div>
+                </p>
+                <p>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <a class="fancybox" title="Yallaho07" href="~/Archives/Yallaho/yallaho07.jpg">
+                                <img src="~/Archives/Yallaho/yallaho07_small.jpg" />
+                            </a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a class="fancybox" title="Yallaho08" href="~/Archives/Yallaho/yallaho08.jpg">
+                                <img src="~/Archives/Yallaho/yallaho08_small.jpg" />
+                            </a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a class="fancybox" title="Yallaho09" href="~/Archives/Yallaho/yallaho09.jpg">
+                                <img src="~/Archives/Yallaho/yallaho09_small.jpg" />
+                            </a>
+                        </div>
+                    </div>
+                </p>
+                <p class="badge">Ya b'slâmaâa! Mimi l'arbi </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div><!-- container -->

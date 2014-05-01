@@ -1,0 +1,9 @@
+﻿@model IEnumerable<IkoulaACDF.Models.PhotoViewModel>
+
+@{
+    ViewBag.Title = "NoPhoto";
+}
+
+<h2>NoPhoto</h2>
+
+<span class="btn btn-default">@Html.ActionLink("Add new photo in " + @Html.DisplayFor(model => model.First().CategoryName) + " - " + @Html.DisplayFor(model => model.First().SubCategoryName), "Create", new { catId = @ViewBag.CatId, subCatId = @ViewBag.SubCatId })</span>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<IkoulaACDF.Models.PhotoViewModel>
+
+@{
+    ViewBag.Title = "Recent Photos";
+}
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" data-show="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title text-danger" id="myModalLabel">@ViewBag.Title <br /> (added or modified) last five</h4>
+            </div>
+            <div class="modal-body text-muted">
+                @foreach (var item in Model)
+                {
+                    <div class="thumbnail">
+                        @{string myTitle = item.SchoolPeriod + " : " + item.Place;}
+                        <img src="@item.ThumbPath" alt="" />
+                        <div class="caption">
+                            <h4>@item.Date.Value.ToShortDateString()</h4>
+                            @if (item.SubCategoryId == 33)
+                            {
+                                <p>
+                                    @item.SchoolPeriod : @item.Place<br />
+                                    @item.UserName<br />
+                                    @item.CategoryName
+                                </p>
+                            }
+                            else
+                            {
+                                <p>
+                                    @item.SchoolPeriod : @item.Place<br />
+                                    @item.UserName<br />
+                                    @item.CategoryName / @item.SubCategoryName
+                                </p>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-eye-close"></span> Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

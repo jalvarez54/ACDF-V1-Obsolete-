@@ -1,0 +1,172 @@
+﻿@*http://stackoverflow.com/questions/13840524/using-pdf-js-in-asp-net-mvc3
+    http://stackoverflow.com/questions/12681588/is-it-possible-to-open-a-pdf-with-fancybox-2-1-in-ie8*@
+
+
+@section scripts {
+    @Scripts.Render("~/bundles/fancybox")
+
+    <script type="text/javascript">
+    @*$(".fancypdf").click(function () {
+            $.fancybox({
+                'type': 'iframe',
+                'titleShow': false,
+                'autoScale': false,
+                'width': '90%',
+                'height': '90%',
+            }); //fancybox
+                //return false;
+        }); //click*@
+
+        //$(".fancypdf").click(function () {
+        //    $.fancybox({
+        //        type: 'html',
+        //        autoSize: false,
+        //        content: '<embed src="' + this.href + '#nameddest=self&page=1&view=FitH,0&zoom=70,0,0" type="application/pdf" height="99%" width="100%" />',
+        //        beforeClose: function () {
+        //            $(".fancybox-inner").unwrap();
+        //        },
+        //        width: 700,
+        //        height: 800,
+        //        helpers: {
+        //            title: {
+        //                type: 'float',
+        //            },
+        //        },
+        //    }); //fancybox
+        //    return false;
+        $(".fancypdf").click(function () {
+            $.fancybox({
+                type: 'html',
+                autoSize: false,
+                content: '<embed src="' + this.href + '#nameddest=self&page=1&view=FitH,0&zoom=70,0,0" type="application/html" height="99%" width="100%" />',
+                beforeClose: function () {
+                    $(".fancybox-inner").unwrap();
+                },
+                width: 700,
+                height: 800,
+                helpers: {
+                    title: {
+                        type: 'float',
+                    },
+                },
+            }); //fancybox
+            return false;
+        }); //click
+
+        $(document).ready(function () {
+            $(".various").fancybox({
+                maxWidth: 800,
+                maxHeight: 600,
+                fitToView: false,
+                width: '70%',
+                height: '70%',
+                autoSize: false,
+                closeClick: false,
+                openEffect: 'none',
+                closeEffect: 'none'
+            });
+        });
+
+    </script>
+}
+
+@{
+    ViewBag.Title = "PDFViewer";
+}
+
+<h2>Documents au format PDF-DOC-PPT</h2>
+<!-- container -->
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">2004 - UNPF - M. LEPOT</span>
+            Préparation rencontre Paris 21/22-02-2004
+            <a class="various fancybox.iframe" href="http://docs.google.com/viewer?url=http://www.jow-alva.net/ACDF/MyPdfs/unpf.pdf&embedded=true">(pdf)</a>
+            <a class="various fancybox.iframe" href="http://docs.google.com/viewer?url=http://www.jow-alva.net/ACDF/MyPdfs/unpf.ppt&embedded=true">(ppt)</a>
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">1971 - Rugby CAF - P. CALVEL</span>
+            Rugby CAF
+            <a class="various fancybox.iframe" href="http://docs.google.com/viewer?url=http://www.jow-alva.net/ACDF/MyPdfs/Rugby_CAFC_1971.ppt&embedded=true">(ppt)</a>
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">Noël 2004 - V. LANDEL</span>
+            Noël 2004
+            <a class="various fancybox.iframe" href="http://docs.google.com/viewer?url=http://www.jow-alva.net/ACDF/MyPdfs/Noel2004-VL.doc&embedded=true">(doc)</a>
+        </li>
+    </ul>
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">1966 - P. Llorens</span>
+            @*@Html.ActionLink("Palmares 1966", "Viewer_PdfJs", "PdfViewer", new { filePath = "Palmares1966.pdf" }, new { @class = "fancypdf", title = "Palmares 1966" })*@
+            @*@Html.ActionLink("Palmares 1966", "Viewer_Google", "PdfViewer", new { filePath = "Palmares1966.pdf" }, new { @class = "fancypdf", title = "Palmares 1966" })*@
+            Palmares 1966
+            <a class="various fancybox.iframe" href="http://docs.google.com/viewer?url=http://www.jow-alva.net/ACDF/MyPdfs/Palmares1966.pdf&embedded=true">(pdf)</a>
+
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">1968 - B. Migeot</span>
+            @*@Html.ActionLink("Palmares 1968", "Viewer_PdfJs", "PdfViewer", new { filePath = "Palmares1968.pdf" }, new { @class = "fancypdf", title = "Palmares 1968" })*@
+            @*@Html.ActionLink("Palmares 1968", "Viewer_Google", "PdfViewer", new { filePath = "Palmares1968.pdf" }, new { @class = "fancypdf", title = "Palmares 1968" })*@
+            Palmares 1968
+            <a class="various fancybox.iframe" href="http://docs.google.com/viewer?url=http://www.jow-alva.net/ACDF/MyPdfs/Palmares1968.pdf&embedded=true">(pdf)</a>
+
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">1972</span>
+            @*@Html.ActionLink("Tramp 1972", "Viewer_PdfJs", "PdfViewer", new { filePath = "Tramp1972.pdf" }, new { @class = "fancypdf", title = "Tramp 1972" })*@
+            @*@Html.ActionLink("Tramp 1972", "Viewer_Google", "PdfViewer", new { filePath = "Tramp1972.pdf" }, new { @class = "fancypdf", title = "Tramp 1972" })*@
+            Tramp 1972
+            <a class="various fancybox.iframe" href="http://docs.google.com/viewer?url=http://www.jow-alva.net/ACDF/MyPdfs/Tramp1972.pdf&embedded=true">(pdf)</a>
+
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">2004 - J. Alvarez</span>
+            @*@Html.ActionLink("Tramp 2004", "Viewer_PdfJs", "PdfViewer", new { filePath = "Tramp2004.pdf" }, new { @class = "fancypdf", title = "Tramp 2004" })*@
+            @*@Html.ActionLink("Tramp 2004", "Viewer_Google", "PdfViewer", new { filePath = "Tramp1972.pdf" }, new { @class = "fancypdf", title = "Tramp 2004" })*@
+            Tramp 2004
+            <a class="various fancybox.iframe" href="http://docs.google.com/viewer?url=http://www.jow-alva.net/ACDF/MyPdfs/Tramp1972.pdf&embedded=true">(pdf)</a>
+
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">2008 - José Formairon</span>
+            @*@Html.ActionLink("Lexique De Mots En Usage A Foucauld", "Viewer_PdfJs", "PdfViewer", new { filePath = "LexiqueDeMotsEnUsageAfoucauld.pdf" }, new { @class = "fancypdf", title = "LexiqueDeMotsEnUsageAfoucauld" })*@
+            @*@Html.ActionLink("Lexique De Mots En Usage A Foucauld", "Viewer_Google", "PdfViewer", new { filePath = "LexiqueDeMotsEnUsageAfoucauld.pdf" }, new { @class = "fancypdf", title = "LexiqueDeMotsEnUsageAfoucauld" })*@
+            Lexique De Mots En Usage A Foucauld
+            <a class="various fancybox.iframe" href="http://docs.google.com/viewer?url=http://www.jow-alva.net/ACDF/MyPdfs/LexiqueDeMotsEnUsageAfoucauld.pdf&embedded=true">(pdf)</a>
+
+            <div class="well">
+                <p>
+                    Il y a 50 ans, en 1957-58, je passais ma première année à Foucauld (j’y suis resté jusque à juin 1965 où, élève en terminale à Lyautey, j’étais surveillant des petits, étude du soir et dortoir). Dans le collège se pratiquait un langage; probablement plus casablancais que typiquement attaché à Foucauld; que la nostalgie, lorsque j’entends certains mots, me renvoie parfois en pleine figure.
+                </p>
+                <p>
+                    Recueil de mots, d’expressions, de noms de personnes utilisés par les élèves du collège tout ce qui m’est revenu est là en vrac. Vie de Foucauld, reflet des mélanges de cultures avec des termes empruntés à l’arabe, l’espagnol, l’italien ou à la communauté juive, certains termes ont du même quitter vos souvenirs. Les blédards utilisaient plus facilement les mots d’origine arabe, ceux de quartiers populaires comme le Maarif ou les Roches se servaient de termes espagnols ou italiens.
+                </p>
+            </div>
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">J. Alvarez</span>
+            @*@Html.ActionLink("Charles de Foucauld (René Bazin)", "Viewer_PdfJs", "PdfViewer", new { filePath = "bazin_charles_de_foucauld.pdf" }, new { @class = "fancypdf", title = "Charles de Foucauld" })*@
+            @*@Html.ActionLink("Charles de Foucauld (René Bazin)", "Viewer_Google", "PdfViewer", new { filePath = "bazin_charles_de_foucauld.pdf" }, new { @class = "fancypdf", title = "Charles de Foucauld" })*@
+            Charles de Foucauld (René Bazin)
+            <a class="various fancybox.iframe" href="http://docs.google.com/viewer?url=http://www.jow-alva.net/ACDF/MyPdfs/bazin_charles_de_foucauld.pdf&embedded=true">(pdf)</a>
+
+        </li>
+    </ul>
+
+</div><!-- container -->
