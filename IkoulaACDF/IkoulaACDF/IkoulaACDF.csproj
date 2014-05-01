@@ -533,9 +533,6 @@
     <Content Include="Views\Photo\CreateNew.cshtml" />
     <None Include="Views\Shared\Articles\Anecdote-11.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Views\Home\Todo.cshtml" />
     <Content Include="Views\Account\Confirm.cshtml" />
     <Content Include="Views\Shared\_NewsPartial.cshtml" />
@@ -559,12 +556,6 @@
     <Content Include="Views\SubCategory\Details.cshtml" />
     <Content Include="Views\SubCategory\Edit.cshtml" />
     <Content Include="Views\SubCategory\Index.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
     <EntityDeploy Include="Models\ModelAcdf.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelAcdf.Designer.cs</LastGenOutput>
@@ -787,9 +778,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>35772</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:35772/ACDF</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost:35772/ACDF</IISAppRootUrl>
+          <IISUrl>http://localhost:44444/ACDF</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
