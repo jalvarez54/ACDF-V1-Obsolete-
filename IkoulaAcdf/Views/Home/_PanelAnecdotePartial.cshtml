@@ -1,0 +1,30 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 id="anecdotesemaine">Anecdote de la semaine</h4>
+    </div>
+
+    <div class="panel-body">
+        <p>Retrouvez chaque semaine dans cette rubrique, l'anecdote de la semaine</p>
+        <div class="panel-group" id="accordionAnec">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" title="Anecdote semaine" data-parent="#accordionL" href="#collapseOne">
+                            Lire
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("Articles/Anecdote-06")
+                        <p><a class="btn btn-default" href="#">See more &raquo;</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+        <ul class="list-inline"><li><a href="#">1 Week Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 4 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li></ul>
+    </div>
+</div>

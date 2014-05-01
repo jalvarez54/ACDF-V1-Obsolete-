@@ -1,0 +1,174 @@
+﻿@model IkoulaACDF.Models.RegisterViewModel
+
+@section Scripts {
+    @*@Scripts.Render("~/bundles/datetimepicker")*@
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @*<script>
+            $(document).ready(function () {
+                $(".datetimepicker").datetimepicker(
+                    {
+                        timepicker: false,
+                        format: 'd/m/Y',
+                        lang: 'fr',
+                        startDate: '01/01/1950',
+                        //mask: true,
+                        inline: true,
+                    })
+            });
+        </script>*@
+
+    <script>
+        $(document).ready(function () {
+            $("#BirthDate").inputmask("d/m/y", { "placeholder": "dd/mm/yyyy" });
+        });
+    </script>
+}
+
+@{
+    ViewBag.Title = "S’inscrire";
+}
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    <div class="container">
+        <div class="well alert alert-danger">
+            <ul>
+                <li><b> Nom d’utilisateur:</b> ne doit pas comporter d'espace [exemple: jalvarez]</li>
+                <li><b>Date de naissance:</b> format jj/mm/aaaa [exemple: 07/02/1955]</li>
+                <li><b>Last name:</b> Nom.</li>
+                <li><b>First name:</b> Prénom.</li>
+                <li><b>Last class:</b> [exemple: Seconde A]</li>
+                <li><b>Actual city:</b> [exemple: Nancy]</li>
+                <li><b>Actual country:</b> [exemple: FRANCE]</li>
+                <li><b>Photo:</b> Non obligatoire, mais plus sympa.</li>
+                <li> <b> Le nom d'utilisateur est définitif, les autres paramètres peuvent-être modifiés ultérieurement.</b></li>
+                <li> <em> Si vous commettez une erreur après avoir cliqué sur  <code>"S'enregistrer"</code>, vous devez saisir à nouveau votre mot de passe.</em></li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                @Html.AntiForgeryToken()
+                <h4>Créer un nouveau compte.</h4>
+                @Html.ValidationSummary()
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.LastName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FirstName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-2 control-label"})
+
+                    <div class="col-md-10 ">
+                        @*Use template: Share/Date.cshtml*@
+                        @*@Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control", placeholder = "Set date" })*@
+                        @*@Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control date-picker", value = Model.BirthDate.ToString("dd/mm/yyyy") })*@
+                        @*@Html.EditorFor(m => m.BirthDate, new { @class = "form-control date-picker", value = Model.BirthDate.ToString("dd-mm-yyyy") })*@
+                        @*@Html.EditorFor(m => m.BirthDate)*@
+                        @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.BirthDate)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstYearSchool, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @*@Html.TextBoxFor(m => m.FirstYearSchool, new { @class = "form-control" })*@
+                        @Html.DropDownListFor(m => m.FirstYearSchool, new SelectList(Model.YearFirst, "Value", "Text"), "-- Please select a year --");
+                        @Html.ValidationMessageFor(m => m.FirstYearSchool)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastYearSchool, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @*@Html.TextBoxFor(m => m.LastYearSchool, new { @class = "form-control" })*@
+                        @Html.DropDownListFor(m => m.LastYearSchool, new SelectList(Model.YearLast, "Value", "Text"), "-- Please select a year --");
+                        @Html.ValidationMessageFor(m => m.LastYearSchool)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastClass, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.LastClass, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.LastClass)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ActualCity, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.ActualCity, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ActualCity)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ActualCountry, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.ActualCountry, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.ActualCountry)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Actual photo", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        <img src="@Html.DisplayFor(m => m.PhotoUrl)" alt="@Html.DisplayFor(m => m.UserName) " width="100" title="@Html.DisplayFor(m => m.FirstName)" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Photo, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Photo, null, new { id = "FilePhoto", onchange = "readURL(this)", type = "file", title = "Search for file to add", @class = "btn btn-primary" })
+                        @Html.ValidationMessageFor(m => m.Photo)<br />
+                        <img id="blah" src="#" alt="" width="100" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-default" value="S'enregistrer" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

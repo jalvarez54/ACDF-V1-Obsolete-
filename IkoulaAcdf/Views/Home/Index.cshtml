@@ -1,0 +1,92 @@
+﻿@section Scripts{
+    @Scripts.Render("~/bundles/flexslider")
+    @Scripts.Render("~/bundles/fancybox")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                helpers: {
+                    title: {
+                        type: 'float',
+                    },
+                },
+                openEffect: 'none',
+                closeEffect: 'elastic',
+                nextEffect: 'fade',
+                prevEffect: 'fade',
+            })
+        });
+    </script>
+
+    <script type="text/javascript" charset="utf-8">
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                //slideshowSpeed: 5000,
+                prevText: "", //String: Set the text for the "previous" directionNav item
+                nextText: "", //String: Set the text for the "next" directionNav item
+                //controlsContainer: ".flexslider-container"
+            });
+        });
+    </script>
+}
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<!-- container -->
+<div class="container">
+
+    <!-- up row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="well-sm alert alert-warning">
+                <p>
+                    Y'a plus qu'à ! Pour les courageux qui ont quelques instants à consacrer au site.<br>
+                    Vous connecter et commenter les <b>@IkoulaACDF.Helpers.Utils.GetGlobalValue(this.Context, "CountAcdfPhotoes")</b> photos du site
+                </p>
+                <p>
+                    <em>Astuce: aidez vous de l'ancien site <a href="http://195.5.238.130/p-jalvarez/foucauld/docPhotos.shtm" target="_blank" title="OLD ACDF Site">ICI <i class="fa fa-external-link"></i></a> (Bon courage ! et merci pour votre participation.)</em>
+                </p>
+            </div>
+        </div>
+    </div><!-- up row -->
+    <!-- upper row -->
+    <div class="row">
+        <!-- left col -->
+        <div class="col-lg-8 col-sm-12">
+            @Html.Partial("_PanelSliderPartial")
+            @Html.Partial("_PanelUsagePartial")
+        </div><!-- left col -->
+        @*<!-- center col -->
+            <div class="col-lg-4 col-sm-12">
+            </div><!-- center col -->*@
+        <!-- right col -->
+        <div class="col-lg-4 col-sm-12">
+            @Html.Partial("_PanelConnexionPartial")
+            @Html.Partial("_PanelNewsPartial")
+            @Html.Partial("_PanelMonthPartial")
+        </div><!-- right col -->
+    </div><!-- upper row -->
+    <!-- middle row -->
+    <div class="row">
+        <!-- left col -->
+        <div class="col-lg-4 col-sm-12">
+            @Html.Partial("_PanelTalentPartial")
+        </div><!-- left col -->
+        <!-- center col -->
+        <div class="col-lg-5 col-sm-12">
+            @Html.Partial("_PanelAnecdotePartial")
+        </div><!-- center col -->
+        <!-- right col -->
+        <div class="col-lg-3 col-sm-12">
+            @Html.Partial("_PanelLinksPartial")
+        </div><!-- right col -->
+    </div><!-- middle row -->
+    <!-- down row -->
+    <div class="row">
+        @Html.Partial("_Panel10Partial")
+    </div><!-- down row -->
+
+</div><!-- container -->

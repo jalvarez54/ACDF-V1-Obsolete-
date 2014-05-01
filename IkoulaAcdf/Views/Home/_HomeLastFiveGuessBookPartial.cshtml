@@ -1,0 +1,19 @@
+﻿@model IkoulaACDF.Models.HomePageViewModel
+
+@foreach (var item in Model.LastFiveGuessBooks)
+{
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <img src="@item.AspNetUser.PhotoUrl" title="@item.AspNetUser.FirstName @item.AspNetUser.LastName" alt="@item.AspNetUser.FirstName @item.AspNetUser.LastName" />
+            </div>
+            <div class="panel-body">
+                @Html.TextAreaFor(modelItem => item.Message, new { @class = "border-box", @readonly = true, rows = "3", disabled = true })
+            </div>
+
+            <div class="panel-footer">
+                <h4>@Html.DisplayFor(modelItem => item.AspNetUser.FirstName) @Html.DisplayFor(modelItem => item.AspNetUser.LastName)</h4>
+                <p>@Html.DisplayFor(modelItem => item.Date)</p>
+            </div>
+    </div>
+}

@@ -1,0 +1,153 @@
+﻿@model PagedList.IPagedList<IkoulaACDF.Models.PhotoViewModel>
+@using PagedList.Mvc;
+
+@section scripts {
+    @Scripts.Render("~/bundles/fancybox")
+    @Scripts.Render("~/bundles/tablesorter")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                helpers: {
+                    title: {
+                        type: 'float',
+                    },
+                },
+                openEffect: 'none',
+                closeEffect: 'elastic',
+                nextEffect: 'fade',
+                prevEffect: 'fade',
+            })
+        });
+
+        @*http://mottie.github.io/tablesorter/docs/example-widget-filter.html*@
+        var sorting = [[0, 0], [1, 0]];
+
+        // note: the square brackets around sorting are required!
+        $("table").trigger("sorton", [sorting]);
+        $("table#sortTableExample").tablesorter(
+            {
+                widthFixed: true,
+                showProcessing: true,
+                headers: {
+                    0: { sorter: false, filter: false },    // disable first column
+
+                    8: { sorter: false, filter: false },      // disable first column
+                },
+                widgets: ["filter"],
+                widgetOptions: {
+                    // css class applied to the table row containing the filters & the inputs within that row
+                    filter_cssFilter: 'tablesorter-filter',
+
+                    // filter widget: If there are child rows in the table (rows with class name from "cssChildRow" option)
+                    // and this option is true and a match is found anywhere in the child row, then it will make that row
+                    // visible; default is false
+                    filter_childRows: false,
+
+                    // Set this option to true to use the filter to find text from the start of the column
+                    // So typing in "a" will find "albert" but not "frank", both have a's; default is false
+                    filter_startsWith: false,
+                },
+
+            });
+
+    </script>
+}
+
+@{
+    ViewBag.Title = "Photos";
+}
+
+<h2>@ViewBag.Title: @ViewBag.Count photos</h2>
+
+<!-- container -->
+<div class="container">
+    <div class="table-responsive">
+        @*http://tablesorter.com/docs/*@
+        <table id="sortTableExample1" class="table table-striped table-bordered table-hover table-condensed tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().Path)
+                    </th>
+                    <th class="hidden-xs">
+                        @Html.DisplayNameFor(model => model.First().Description)
+                    </th>
+                    <th class="hidden-xs hidden-sm">
+                        @Html.DisplayNameFor(model => model.First().Place)
+                    </th>
+                    <th class="hidden-xs hidden-sm">
+                        @Html.DisplayNameFor(model => model.First().UserName)
+                    </th>
+                    <th class="hidden-xs hidden-sm">
+                        @Html.DisplayNameFor(model => model.First().CategoryName)
+                    </th>
+                    <th class="hidden-xs hidden-sm">
+                        @Html.DisplayNameFor(model => model.First().SubCategoryName)
+                    </th>
+                    <th class="hidden-xs hidden-sm">
+                        @Html.DisplayNameFor(model => model.First().SchoolPeriod)
+                    </th>
+                    <th class="hidden-xs hidden-sm">
+                        @Html.DisplayNameFor(model => model.First().Date)
+                    </th>
+                    <th class="hidden-xs hidden-sm">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="descTD">
+                            <div class="thumbnail">
+                                @{string myTitle = item.Description + " : " + item.Place;}
+                                <a class="fancybox" title="@myTitle" href="@item.Path">
+                                    <img src="@item.ThumbPath" alt="" />
+                                </a>
+                                <div class="caption">
+                                    <h4>@item.UserName</h4>
+                                    <p>@item.SchoolPeriod</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="hidden-xs">
+                            @Html.TextAreaFor(modelItem => item.Description, new { rows = "5", column = "20", @readonly = "true", disable = "true" })
+                        </td>
+                        <td class="hidden-xs hidden-sm">
+                            @Html.DisplayFor(modelItem => item.Place)
+                        </td>
+                        <td class="hidden-xs hidden-sm">
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td class="hidden-xs hidden-sm">
+                            @Html.DisplayFor(modelItem => item.CategoryName)
+                        </td>
+                        <td class="hidden-xs hidden-sm">
+                            @Html.DisplayFor(modelItem => item.SubCategoryName)
+                        </td>
+                        <td class="hidden-xs hidden-sm">
+                            @Html.DisplayFor(modelItem => item.SchoolPeriod)
+                        </td>
+                        <td class="hidden-xs hidden-sm">
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td class="hidden-xs hidden-sm">
+                            <div class="btn-group-vertical ">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.PhotoId }, new { type = "button", @class = "btn btn-xs btn-primary" })
+                                @Html.ActionLink("Details", "Details", new { id = item.PhotoId }, new { type = "button", @class = "btn btn-xs" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.PhotoId }, new { type = "button", @class = "btn btn-xs btn-danger" })
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+
+    </div>
+</div><!-- container -->
